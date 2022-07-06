@@ -1,0 +1,55 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.outer-main {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main {
+	width: 15cm;
+	height: 10cm;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1cm;
+}
+
+
+.container {
+	width: 8cm;
+	height: 8cm;
+	box-shadow: 0 0 0.5cm #a89151;
+	display:flex;
+	justify-content: center;
+  	align-items: center;	
+	flex-direction: column;
+}
+
+
+
+.row-pixel {
+	display: flex;
+	justify-content: center;		
+	align-items: center;
+}
+
+
+
+.pixel {
+	border: 0.1cm black;
+	background-color: red;
+}
+
+
+
+
