@@ -111,7 +111,9 @@ function containerCreate() {
 			// tmpPixel.style.display = 'flex';
 			// tmpPixel.style.backgroundColor = 'red';
 
-	
+
+
+			// this works while sliding the cursor through the container...
 			tmpPixel.addEventListener('mouseenter',
 				() => {
 					if (mouseDown)
@@ -122,9 +124,17 @@ function containerCreate() {
 				}
 			);
 
+			// this works for single clicks
+			tmpPixel.addEventListener('click',
+				() => {
+					tmpPixel.style.backgroundColor = currentColor;
+				}
+			);
 
 
 			tmpArray.push(tmpPixel);
+
+
 		}
 		pixelArray.push(tmpArray);
 		tmpArray = [];
