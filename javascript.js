@@ -1,6 +1,3 @@
-
-
-
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
@@ -19,11 +16,25 @@ let mouseDown = false;
 document.onmousedown = () => { mouseDown = true }
 document.onmouseup = () => { mouseDown = false }
 
+let colorInput = document.querySelector('#colorInput');
+
+
+
+// TODO row number not updated along with gridSize!!!
+
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color 
+// gotta learn those 'this', and 'event', also 'event.target' looks useful too...
+colorInput.addEventListener('change', updateColor);
 
 
 
 
+// ---------------------------------------------------------------------------------------------
+//
+// ------------------------------------------- FUNCTIONS ---------------------------------------
 
+// ---------------------- GRID LOGIC -------------------
 function containerCreate() {
 	let tmpArray = []
 	
@@ -86,7 +97,6 @@ function containerPlaceDivs() {
 
 
 function containerClean() {
-
 	pixelArray = [];
 	container.innerHTML == '';
 	while (container.firstChild)
@@ -98,6 +108,10 @@ console.log(pixelArray);
 containerPlaceDivs();
 
 
+// ---------------------- COLOR -----------------------
+function updateColor() {
+	currentColor = colorInput.value;
+}
 
 
 
