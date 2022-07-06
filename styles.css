@@ -47,7 +47,7 @@ html, body {
 
 .pixel {
 	border: 0.1cm black;
-	background-color: red;
+	/* background-color: red; */
 }
 
 

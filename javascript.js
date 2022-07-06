@@ -38,10 +38,13 @@
 // https://stackoverflow.com/questions/34784762/input-type-color-not-working-in-ie-11   but runing js in the explorer also ai bit ...
 
 
+
+
+
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
-let currentColor;
+let currentColor = 'red';
 
 let container = document.querySelector('.container');
 
@@ -50,6 +53,35 @@ let pixelSize = getPixelSize();
 function getPixelSize() {
 	return container.offsetHeight / gridSize
 }
+
+
+let mouseDown = false;
+
+
+// document.querySelector('html').addEventListener(
+// 	'mousedown',
+// 	() => {
+// 		mouseDown = true;
+// 	}
+// );
+// 
+// document.querySelector('html').addEventListener(
+// 	'mouseup',
+// 	() => {
+// 		mouseDoown = false;
+// 	}
+// );
+// above didn't work as I wanted... As I saw similar things to this https://stackoverflow.com/a/322827,
+// https://developer.mozilla.org/en-US/docs/Web/API/Document
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/body
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/body
+// https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers  (if I didn't see in that comment unfortunately, I wouldn't see these for a while...)
+document.onmousedown = () => { mouseDown = true }
+document.onmouseup = () => { mouseDown = false }
+
+
+
+
 
 
 // maybe we could do it without the Array. But anyway, this is also a bit more guarantee... (But also more ram consuming...)
@@ -78,6 +110,18 @@ function containerCreate() {
 			// tmpPixel.style.flexGrow = '1';
 			// tmpPixel.style.display = 'flex';
 			// tmpPixel.style.backgroundColor = 'red';
+
+	
+			tmpPixel.addEventListener('mouseenter',
+				() => {
+					if (mouseDown)
+					{
+						// this.style.backgroundColor = currentColor;
+						tmpPixel.style.backgroundColor = currentColor;
+					}
+				}
+			);
+
 
 
 			tmpArray.push(tmpPixel);
@@ -126,11 +170,22 @@ function containerClean() {
 containerCreate();
 console.log(pixelArray);
 containerPlaceDivs();
+// setTimeout(
+// 	() => {
+// 		containerClean();
+// 	}
+// 	,1000
+// );
 
-setTimeout(
-	() => {
-		containerClean();
-	}
-	,1000
-);
+
+
+
+
+
+
+
+
+
+
+
 
