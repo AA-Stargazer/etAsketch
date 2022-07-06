@@ -78,6 +78,8 @@ function containerCreate() {
 			// tmpPixel.style.flexGrow = '1';
 			// tmpPixel.style.display = 'flex';
 			// tmpPixel.style.backgroundColor = 'red';
+
+
 			tmpArray.push(tmpPixel);
 		}
 		pixelArray.push(tmpArray);
@@ -106,21 +108,29 @@ function containerPlaceDivs() {
 
 
 function containerClean() {
-	let childrenElements = container.children;
-	for (i = 0; i < childrenElements.length; ++i)
-	{
-		container.removeChild(childrenElements[i]);
-	}
+
 	pixelArray = [];
+	container.innerHTML == '';
+
+	// let childrenElements = container.children;
+	// for (i = 0; i < childrenElements.length; ++i)
+	// {
+	// 	container.removeChild(childrenElements[i]);
+	// }
+	
+	// https://stackoverflow.com/a/3955238 
+	while (container.firstChild)
+		container.removeChild(container.lastChild);
 }
 
 containerCreate();
 console.log(pixelArray);
-// setTimeout(
-// 	() => {
-// 		containerPlaceDivs();
-// 	}
-// 	,1000
-// );
 containerPlaceDivs();
+
+setTimeout(
+	() => {
+		containerClean();
+	}
+	,1000
+);
 
