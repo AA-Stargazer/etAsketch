@@ -27,8 +27,10 @@ let colorInput = document.querySelector('#colorInput');
 colorInput.addEventListener('change', updateColor);
 
 
-
+// https://www.reddit.com/r/webdev/comments/jicwt/screw_you_internet_explorer/
 // this supporting the browsers are a bit sensitive I guess. But, hope at least when I made my own color picker, can work in IE, because in Asia, explorer is looks pretty popular. And wouldn't want  my profile project to be looks weird/bad...
+// http://chartsbin.com/view/33051
+
 
 
 
