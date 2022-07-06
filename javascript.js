@@ -22,11 +22,9 @@ let colorInput = document.querySelector('#colorInput');
 
 // TODO row number not updated along with gridSize!!!
 
-
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color 
 // gotta learn those 'this', and 'event', also 'event.target' looks useful too...
 colorInput.addEventListener('change', updateColor);
-
 
 
 
@@ -37,6 +35,7 @@ colorInput.addEventListener('change', updateColor);
 // ---------------------------------------------------------------------------------------------
 //
 // ------------------------------------------- FUNCTIONS ---------------------------------------
+
 
 // ---------------------- GRID LOGIC -------------------
 function containerCreate() {
