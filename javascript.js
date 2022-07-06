@@ -33,20 +33,17 @@ colorInput.addEventListener('change', updateColor);
 
 // ---------------------- GRID LOGIC -------------------
 function containerCreate() {
-	let tmpArray = []
 	
 	// starts from top left
 	for (i = 0; i < gridSize; ++i)
 	{
+		let tmpArray = []
 		for (k = 0; k < gridSize; ++k)
 		{
-			// TODO add eventlistener, to change the color by click etc...
 			let tmpPixel = document.createElement('div');
 			tmpPixel.classList.add("pixel");
 			tmpPixel.style.height = `100%`;
 			tmpPixel.style.width = `${pixelSize}px`;
-
-
 
 			// this works while sliding the cursor through the container...
 			tmpPixel.addEventListener('mouseenter',
@@ -68,11 +65,8 @@ function containerCreate() {
 
 
 			tmpArray.push(tmpPixel);
-
-
 		}
 		pixelArray.push(tmpArray);
-		tmpArray = [];
 	}
 }
 
@@ -100,10 +94,12 @@ function containerClean() {
 		container.removeChild(container.lastChild);
 }
 
-containerCreate();
-console.log(pixelArray);
-containerPlaceDivs();
-
+function createDrawArea() {
+	pixelSize = getPixelSize();
+	containerCreate();
+	console.log();
+	containerPlaceDivs();
+}
 
 // ---------------------- COLOR -----------------------
 function updateColor() {
