@@ -1,8 +1,12 @@
+/* https://www.w3schools.com/css/css3_gradients.asp */
+
+
 html, body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	background-color: white;
 }
 
 .outer-main {
@@ -17,7 +21,7 @@ html, body {
 
 .main {
 	width: 15cm;
-	height: 10cm;	
+	height: 8cm;	
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -28,14 +32,12 @@ html, body {
 .container {
 	width: 8cm;
 	height: 8cm;
-	box-shadow: 0 0 0.5cm #a89151;
+	box-shadow: 0 0 0.5cm #53B8BB;
 	display:flex;
 	justify-content: center;
   	align-items: center;	
 	flex-direction: column;
 }
-
-
 
 .row-pixel {
 	display: flex;
@@ -43,11 +45,74 @@ html, body {
 	align-items: center;
 }
 
-
-
 .pixel {
 	border: 0.1cm black;
-	/* background-color: red; */
+	/* without 'this user-select: none', you could carry the drawed pixels. And this was annoying when you try to recolor the pixel, but you're just carrying the are (not literally. it's like, draging the picture inside the browser) */
+	/* https://css-tricks.com/almanac/properties/u/user-select/ */
+  	-webkit-user-select: none;  /* Chrome all / Safari all */
+  	-moz-user-select: none;     /* Firefox all */
+  	-ms-user-select: none;      /* IE 10+ */
+  	user-select: none;          /* Likely future */      
+}
+
+.color-palette {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1cm;
+	
+	border: solid;
+	border-radius: 0.4cm;
+	border-width: 0.6cm;
+	border-color: rgb(13, 13, 13, 0.8); 
+	/*
+	 * when I added the transparency to the border-color along with background image (with linear-gradient), inside the borders, linear gradient shows effect, But also in the corners, different combining colors (from the linear-gradient) being showed apart from the edges... You can see the example in 'Screenshot 2022-07-07 at 16-23-39 Etch A Skatch.png'  
+	 */
+	/* 
+	 * https://w3bits.com/rainbow-text/  works with background image..., for shadow, can create another div and place the .color-palette to the inside... Or shadow to inside etc,!
+	 */
+	/* 
+	 * https://www.w3schools.com/css/tryit.asp?filename=trycss3_box-shadow8
+	 * https://www.w3schools.com/css/css3_shadows_box.asp
+	 */
+	/*background-image: linear-gradient(to bottom right, #003638, #055052, #53B8BB, #F3F2C9);*/
+	background-image: linear-gradient(to bottom right, #26001B, #810034, #FF005C, #FFF600);
+	box-shadow: 0 0 0.4cm white inset;
+	
+	padding: 0 1cm;
+	width: 4cm;
+	height: 100%;
+}
+
+.color-palette > div:nth-of-type(1) > input {
+	width: 5cm;
+	height: 2cm;
+}
+
+.color-palette > div:nth-of-type(2) > input {
+	width: 4.7cm;
+}
+
+.color-palette p {
+	margin: -0.5cm;
+	margin-bottom: -1.05cm;
+	margin-left: -3.4cm;
+	padding: 0;
+}
+
+.color-palette p:nth-of-type(1) {
+	margin: -0.5cm;
+	margin-top: -2cm;
+	color: #055052;
+	font-weight: 800;
+}
+
+hr {
+	width: 100%;
+	margin: -0.2cm;
+	margin-top: -0.4cm;
+	background-color: #003638;
 }
 
 
