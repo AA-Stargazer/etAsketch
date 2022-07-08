@@ -1,7 +1,3 @@
-/* 
- * https://www.w3schools.com/css/css3_variables.asp
- * finally, with just 1 variable, we can change multiple things we want 
- */
 :root {
   --main-height: 8cm;
 }
