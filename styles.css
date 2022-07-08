@@ -1,6 +1,3 @@
-/* https://www.w3schools.com/css/css3_gradients.asp */
-
-
 html, body {
 	margin: 0;
 	padding: 0;
@@ -47,8 +44,6 @@ html, body {
 
 .pixel {
 	border: 0.1cm black;
-	/* without 'this user-select: none', you could carry the drawed pixels. And this was annoying when you try to recolor the pixel, but you're just carrying the are (not literally. it's like, draging the picture inside the browser) */
-	/* https://css-tricks.com/almanac/properties/u/user-select/ */
   	-webkit-user-select: none;  /* Chrome all / Safari all */
   	-moz-user-select: none;     /* Firefox all */
   	-ms-user-select: none;      /* IE 10+ */
@@ -66,17 +61,6 @@ html, body {
 	border-radius: 0.4cm;
 	border-width: 0.6cm;
 	border-color: rgb(13, 13, 13, 0.8); 
-	/*
-	 * when I added the transparency to the border-color along with background image (with linear-gradient), inside the borders, linear gradient shows effect, But also in the corners, different combining colors (from the linear-gradient) being showed apart from the edges... You can see the example in 'Screenshot 2022-07-07 at 16-23-39 Etch A Skatch.png'  
-	 */
-	/* 
-	 * https://w3bits.com/rainbow-text/  works with background image..., for shadow, can create another div and place the .color-palette to the inside... Or shadow to inside etc,!
-	 */
-	/* 
-	 * https://www.w3schools.com/css/tryit.asp?filename=trycss3_box-shadow8
-	 * https://www.w3schools.com/css/css3_shadows_box.asp
-	 */
-	/*background-image: linear-gradient(to bottom right, #003638, #055052, #53B8BB, #F3F2C9);*/
 	background-image: linear-gradient(to bottom right, #26001B, #810034, #FF005C, #FFF600);
 	box-shadow: 0 0 0.4cm white inset;
 	
