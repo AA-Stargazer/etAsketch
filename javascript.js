@@ -1,10 +1,3 @@
-// I'm taking this website as a reference: https://www.favicon.cc/
-//
-//
-// IDEA: we can add some color palette options to right-left top, and user can choose the theme of the website... A little bit...
-// or just leave this as is. I try the color palete theme thing for some other things. We got calculator project coming up, this might fit for that pretty well..
-
-
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
