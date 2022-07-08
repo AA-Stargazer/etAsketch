@@ -17,7 +17,7 @@ html, body {
 }
 
 .main {
-	width: 15cm;
+	width: 30cm;
 	height: 8cm;	
 	display: flex;
 	justify-content: center;
@@ -50,23 +50,33 @@ html, body {
   	user-select: none;          /* Likely future */      
 }
 
-.color-palette {
+.color-palette, .selection-section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	gap: 1cm;
 	
+	width: 5.4cm;
+	height: 100%;
+}
+
+.selection-section {
 	border: solid;
 	border-radius: 0.4cm;
-	border-width: 0.6cm;
+	border-width: 0.1cm;
+	border-color: rgb(13, 13, 13, 0.8); 
+	background-image: linear-gradient(to bottom right, #FFF600, #FF005C, #810034, #26001B);
+	box-shadow: 0 0 0.5cm #53B8BB;
+}
+
+.color-palette {		
+	border: solid;
+	border-radius: 0.4cm;
+	border-width: 0.1cm;
 	border-color: rgb(13, 13, 13, 0.8); 
 	background-image: linear-gradient(to bottom right, #26001B, #810034, #FF005C, #FFF600);
-	box-shadow: 0 0 0.4cm white inset;
-	
-	padding: 0 1cm;
-	width: 4cm;
-	height: 100%;
+	box-shadow: 0 0 0.5cm #53B8BB;	
 }
 
 .color-palette > div:nth-of-type(1) > input {
