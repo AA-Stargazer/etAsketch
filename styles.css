@@ -1,3 +1,13 @@
+/* 
+ * https://www.w3schools.com/css/css3_variables.asp
+ * finally, with just 1 variable, we can change multiple things we want 
+ */
+:root {
+  --main-height: 8cm;
+}
+
+
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -18,7 +28,7 @@ html, body {
 
 .main {
 	width: 30cm;
-	height: 8cm;	
+	height: var(--main-height);	
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,8 +37,8 @@ html, body {
 
 
 .container {
-	width: 8cm;
-	height: 8cm;
+	width: var(--main-height);
+	height: var(--main-height);
 	box-shadow: 0 0 0.5cm #53B8BB;
 	display:flex;
 	justify-content: center;
