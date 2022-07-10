@@ -65,24 +65,21 @@ html, body {
 	
 	width: 5.4cm;
 	height: 100%;
+
+	border: solid;
+	border-radius: 0.3cm;
+	border-width: 0.1cm;
+	border-color: rgb(13, 13, 13, 0.8);
+	box-shadow: 0 0 0.5cm #53B8BB;	
 }
 
 .selection-section {
-	border: solid;
-	border-radius: 0.4cm;
-	border-width: 0.1cm;
-	border-color: rgb(13, 13, 13, 0.8); 
+	/* https://colorhunt.co/palette/26001b810034ff005cfff600 */	
 	background-image: linear-gradient(to bottom right, #FFF600, #FF005C, #810034, #26001B);
-	box-shadow: 0 0 0.5cm #53B8BB;
 }
 
 .color-palette {		
-	border: solid;
-	border-radius: 0.4cm;
-	border-width: 0.1cm;
-	border-color: rgb(13, 13, 13, 0.8); 
 	background-image: linear-gradient(to bottom right, #26001B, #810034, #FF005C, #FFF600);
-	box-shadow: 0 0 0.5cm #53B8BB;	
 }
 
 .color-palette > div:nth-of-type(1) > input {
@@ -94,22 +91,42 @@ html, body {
 	width: 4.7cm;
 }
 
+.grid-size-input {
+	max: 40;
+	min: 16;
+}
+
+
 .color-palette p {
 	margin: -0.5cm;
 	margin-bottom: -1.05cm;
 	margin-left: -3.4cm;
 	padding: 0;
+	color: #F9DFDC;
 }
 
 .color-palette p:nth-of-type(1) {
 	margin: -0.5cm;
 	margin-top: -2cm;
-	color: #055052;
 	font-weight: 800;
+	/* 
+	 * text-shadow: 0 0 0.1cm black;
+	 * filter: drop-shadow(0 0 0.1cm black);
+	 */
+  /* https://w3bits.com/rainbow-text/ */ 
+  /*
+   * background-image: linear-gradient(to right bottom, #2C3333, #395B64, #2666CF, #F5F2E7);
+   * -webkit-background-clip: text;
+   * -webkit-text-fill-color: transparent;	
+   */
+}
+
+.color-palette p:nth-of-type(2) {
+	margin-left: -4.2cm;
 }
 
 hr {
-	width: 100%;
+	width: 80%;
 	margin: -0.2cm;
 	margin-top: -0.4cm;
 	background-color: #003638;
