@@ -1,5 +1,6 @@
 :root {
   --main-height: 8cm;
+  --choice-background-transparency: 0.6;
 }
 
 
@@ -71,15 +72,32 @@ html, body {
 	border-width: 0.1cm;
 	border-color: rgb(13, 13, 13, 0.8);
 	box-shadow: 0 0 0.5cm #53B8BB;	
+	/*
+	 * background-color: blue; /* yeeaahhhh this works for background-immage opacity...:D)
+	 */
+	/* yooo, blue fits very cool, but gotta icrease the opacity (--choice-background-transparency (maybe should have name this with 'opacity)) */  
+	/* background-color: #53B8BB; NOPE, this not looks as good as blue */
+	background-color: purple; /* got more natural background... */
+	background-color: orange; /* wow, bronzy */
+	background-color: yellow; /* freakin sun, but close to orange one depending on the opacity... */
+	background-color: #4d004d; /* dark purple looks good, we already started by wantint opacity on black background.... */
+	background-color: #330033; 
 }
 
 .selection-section {
 	/* https://colorhunt.co/palette/26001b810034ff005cfff600 */	
-	background-image: linear-gradient(to bottom right, #FFF600, #FF005C, #810034, #26001B);
+	/*
+	 * background-image: linear-gradient(to bottom right, #FFF600, #FF005C, #810034, #26001B);
+	*/
+	background-image: linear-gradient(to bottom right, rgb(255, 246, 0, var(--choice-background-transparency)), rgb(255, 0, 92, var(--choice-background-transparency)), rgb(129, 0, 52, var(--choice-background-transparency)), rgb(38, 0, 27, var(--choice-background-transparency)));
 }
 
 .color-palette {		
-	background-image: linear-gradient(to bottom right, #26001B, #810034, #FF005C, #FFF600);
+	/*
+	 * background-image: linear-gradient(to bottom right, #26001B, #810034, #FF005C, #FFF600);
+	 */
+	background-image: linear-gradient(to bottom right, rgb(38, 0, 27, var(--choice-background-transparency)), rgb(129, 0, 52, var(--choice-background-transparency)), rgb(255, 0, 92, var(--choice-background-transparency)), rgb(255, 246, 0, var(--choice-background-transparency)));
+
 }
 
 .color-palette > div:nth-of-type(1) > input {
