@@ -1,3 +1,6 @@
+// holy cow, in here https://www.favicon.cc/ you can create animation(gif) from the drawen sketches, and you can see the ones that made... I'll definitely create a database, I also decided on postgres instead of mysql after sqlite...
+
+
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
@@ -112,6 +115,11 @@ function updateColor() {
 }
 
 function updateGridArea() {
+	console.log('asdf');
+	if (gridSizeInput.value < 16)
+		gridSizeInput.value = 16;
+	if (gridSizeInput.value > 40)
+		gridSizeInput.value = 40;
 	gridSize = gridSizeInput.value;
 	createDrawArea();
 }
