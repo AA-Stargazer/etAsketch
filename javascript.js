@@ -44,6 +44,8 @@ let currentColor = colorInput.value;
 // TODO might add eraser...
 // TODO add favicon option to set everything egiible to create a favicon...
 
+// UPDATE: might need to use alpha value between 0-255 instead of 0-1, for python PIL
+
 
 // ---------------------------------------------------------------------------------------------
 //
