@@ -31,6 +31,8 @@ gridSizeInput.value = gridSize;
 gridSizeInput.addEventListener('change', updateGridArea);
 
 let currentColor = colorInput.value;
+// console.log(colorInput.value);
+hexToRgb(colorInput.value);
 
 
 // ---------------------------------------------------------------------------------------------
@@ -127,6 +129,57 @@ function updateGridArea() {
 
 createDrawArea();
 
+
+// oh, wait. UPDATE, when I searched for str to int mdn... parseInt() can convert the hex to decimal ...
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+function hexToRgb(hex_color) {
+
+	// console.log(typeof hex_color);
+
+	let hexRed = hex_color[1] + hex_color[2];
+	let hexGreen = hex_color[3] + hex_color[4];
+	let hexBlue = hex_color[5] + hex_color[6];
+
+	// console.log(hexRed, hexGreen, hexBlue);
+
+	function hexToDecimal(number) {
+		
+		function charToNum(num) {
+			switch(num) {
+				case 'a':
+					return 10;
+					break;
+				case 'b':
+					return 11;
+					break;
+				case 'c':
+					return 12;
+					break;
+				case 'd':
+					return 13;
+					break;
+				case 'e':
+					return 14;
+					break;
+				case 'f':
+					return 15;
+					break;
+				default:
+					return parseInt(num);
+			}	
+		}
+		// console.log(number[0], number[1]);
+		// console.log(16 * charToNum(number[0]), charToNum(number[1]));
+		// console.log(typeof (16 * charToNum(number[0])));
+		// console.log(typeof charToNum(number[1]));
+
+		return (16 * charToNum(number[0]))  + charToNum(number[1]);
+	}
+
+	rgb = `rgb(${hexToDecimal(hexRed)}, ${hexToDecimal(hexGreen)}, ${hexToDecimal(hexBlue)})`;
+	// console.log(rgb);
+
+}
 
 
 
