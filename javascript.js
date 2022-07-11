@@ -193,10 +193,5 @@ function hexToRgb(hex_color) {
 }
 
 
-function updateTransparency() {
 
 
-
-
-
-}
