@@ -21,18 +21,27 @@ document.onmouseup = () => { mouseDown = false }
 
 let colorInput = document.querySelector('#color-input');
 let gridSizeInput = document.querySelector('#grid-size-input');
+let transparencyInput = document.querySelector('#transparency-input');
 
 
 // TODO row number not updated along with gridSize!!!
 
 colorInput.addEventListener('change', updateColor);
+transparencyInput.addEventListener('change', updateColor);
 
 gridSizeInput.value = gridSize;
 gridSizeInput.addEventListener('change', updateGridArea);
 
 let currentColor = colorInput.value;
-// console.log(colorInput.value);
-hexToRgb(colorInput.value);
+
+
+// TODO add radio button etc to the top right corner of color. So user can choose background color etc. And depending on the radio button, color and transparency affects to the background or the drawer. (we might hide transparency div for background option...
+// or just create another color input (background no need transparency,  also as will create option to have the background or not both in save part and color part...)
+// wait, I thought this for transparent colors looks different depending on the background color. But while downloading user might not want the background color. So when you created the save option, also add radio button for include the background color or not. Therefore also add second radio buttons for include background color or not...
+// NOTE, IMPORTANT NOTE, do these after completing the main page if you want to do ....
+// UPDATE, I'll take care of the design and what buttonn should be added etc..... 
+//
+// TODO might add eraser...
 
 
 // ---------------------------------------------------------------------------------------------
@@ -113,7 +122,11 @@ function createDrawArea() {
 
 // ---------------------- COLOR/COLOUR ----------------
 function updateColor() {
-	currentColor = colorInput.value;
+	let rgb = hexToRgb(colorInput.value);
+	let rgb_with_transparency = rgb.slice(0, -1) + ', ' + transparencyInput.value / 100 + ')';
+	console.log(rgb_with_transparency);
+	// currentColor = colorInput.value;
+	currentColor = rgb_with_transparency;
 }
 
 function updateGridArea() {
@@ -122,7 +135,8 @@ function updateGridArea() {
 		gridSizeInput.value = 16;
 	if (gridSizeInput.value > 40)
 		gridSizeInput.value = 40;
-	gridSize = gridSizeInput.value;
+	updateColor();
+	gridSize = gridSizeInput.value;;
 	createDrawArea();
 }
 
@@ -130,7 +144,7 @@ function updateGridArea() {
 createDrawArea();
 
 
-// oh, wait. UPDATE, when I searched for str to int mdn... parseInt() can convert the hex to decimal ...
+// when I searched for str to int mdn... parseInt() can convert the hex to decimal ...
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
 function hexToRgb(hex_color) {
 
@@ -168,20 +182,18 @@ function hexToRgb(hex_color) {
 					return parseInt(num);
 			}	
 		}
-		// console.log(number[0], number[1]);
-		// console.log(16 * charToNum(number[0]), charToNum(number[1]));
-		// console.log(typeof (16 * charToNum(number[0])));
-		// console.log(typeof charToNum(number[1]));
-
 		return (16 * charToNum(number[0]))  + charToNum(number[1]);
 	}
 
 	rgb = `rgb(${hexToDecimal(hexRed)}, ${hexToDecimal(hexGreen)}, ${hexToDecimal(hexBlue)})`;
-	// console.log(rgb);
-
+	return rgb;
 }
 
 
+function updateTransparency() {
 
 
 
+
+
+}
