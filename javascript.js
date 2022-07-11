@@ -28,6 +28,7 @@ let transparencyInput = document.querySelector('#transparency-input');
 
 colorInput.addEventListener('change', updateColor);
 transparencyInput.addEventListener('change', updateColor);
+transparencyInput.value = 100;
 
 gridSizeInput.value = gridSize;
 gridSizeInput.addEventListener('change', updateGridArea);
@@ -45,6 +46,22 @@ let currentColor = colorInput.value;
 // TODO add favicon option to set everything egiible to create a favicon...
 
 // UPDATE: might need to use alpha value between 0-255 instead of 0-1, for python PIL
+// NOTE: I waas gonna use C or so, but I couldn't find a solution like I want, so I turned to the python....
+// but I encountered some cool sites like: https://www.usna.edu/Users/cs/nchamber/courses/si204/s18/lab/l08/lab.html
+// NOTE: for using databases with javascript https://www.quora.com/Should-I-use-JavaScript-to-query-MySQL-database-on-my-website-or-should-I-use-PHP-Python-Ruby
+// -- // from Estevan Seneca:
+// -- // If you are referring to browser based Javascript, you do not want to have it pass SQL statements directly to the server. This presents a major liability since you’re exposing your data store to a host of input validation risks. Any client side user would be able to modify the in browser request and feed it directly to your server.
+// -- // 
+// -- // If you’re referring to your stack, go with what is already available. If your existing infrastructure uses Python/Django then SQLAlchemy or a similar ORM my work for you. PHP has an excellent set of database bindings for a majority of databases as well.
+// -- // 
+// -- // If you’re starting from scratch then I’d suggest what ever would integrate into your ecosystem the best. Look at what you know, what you (or your company) already runs and make your decision that would allow for the easiest integration and testing.
+// -- // 
+// -- // If we knew a little bit more about the circumstance in which you are operating in, a better advisement could be given.
+// so using database etc is risky with javascript like using innerHTML from the user-input... now ruby etc makes sense to be honest.... actually I can do something like, if the sql code is equal to what we want... But then again, we would have to be doing this with another .js file... Anyway, I didn't need in this stage for such a thing, I guess (I hope still won't have risk, but will use the files... -_-), But I thought wouldn't be bad to use some sql, db etc...
+// another opinion on using sql with javascript: https://stackoverflow.com/a/49237650
+// Still though, I'll firstly complete the javascript back-end path first. I don't need some database thing for a while. And can start to do some things/applications with node.js
+
+
 
 
 // ---------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 from PIL import Image
 import numpy as np
-im = Image.open('top-line-with-transparency.ico')
+im = Image.open('favicon.ico')
 
 
 # while I was searching for how to get the alpha value, https://stackoverflow.com/questions/35965487/indexerror-with-pil-image-and-numpy-array-alpha-channel-blending
