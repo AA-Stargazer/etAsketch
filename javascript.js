@@ -193,5 +193,8 @@ function hexToRgb(hex_color) {
 }
 
 
+function floatTo255(number) {
+	return (number * 255).toFixed();
+}
 
 

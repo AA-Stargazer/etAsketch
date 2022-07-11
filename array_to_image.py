@@ -20,8 +20,6 @@ print(orig_img)
 # print(alpha)
 
 
-
-
 # -----------------------------------------
 # a = np.asarray(im)
 # 
