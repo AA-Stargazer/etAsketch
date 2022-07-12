@@ -242,25 +242,14 @@ function floatTo255(number) {
 
 let ajaxButton = document.querySelector('#ajax-try');
 
-ajaxButton.addEventListener('click', ajaxy);
+// ajaxButton.addEventListener('click', ajaxy);
 
-// 2022-07-12
-// when I clicked to the button, error in the console: "" Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at file:///home/arc_dust/theodinproject/etAsketch/array_to_image.py. (Reason: CORS request not http). (Learn More). ""
-// In the '(Learn More)'   (https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp), It directly got section for local file    https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp:
-// -- // Loading a local file
-// -- // 
-// -- // Local files from the same directory and subdirectories were historically treated as being from the same origin. This meant that a file and all its resources could be loaded from a local directory or subdirectory during testing, without triggering a CORS error.
-// -- // 
-// -- // Unfortunately this had security implications, as noted in this advisory: CVE-2019-11730. Many browsers, including Firefox and Chrome, now treat all local files as having opaque origins (by default). As a result, loading a local file with included local resources will now result in CORS errors.
-// -- // 
-// -- // Developers who need to perform local testing should now set up a local server. As all files are served from the same scheme and domain (localhost) they all have the same origin, and do not trigger cross-origin errors.
-// -- // 
-// -- // Note: This change is in line with the URL specification, which leaves the origin behavior for files to the implementation, but recommends that file origins are treated as opaque if in doubt.
-
-
-
-
-
+// btw using firefox-developer-edition!!!!!!!!!!!
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS   (from 'see also', 'CORS introduction' from just above link)
+// // https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP    (reach here by search for: "OPTIONS is an HTTP/1.1 method that is used to determine further information from servers, and is a safe method" from parent link (just the above link in this javascript.js file))   (later gotta back to this for sure)
+// -- things gets on and on, for this stage, I'll just directly search for it...
+// also wait a minute, I'm in my current environment but how it would work for example through the internet while trying to reach the local file? Gotta run the python code etc... Idk how https://www.favicon.cc/ done it...
 
 function ajaxy() {
 	if (window.XMLHttpRequest)
@@ -292,6 +281,26 @@ function ajaxy() {
 	}
 
 }
+
+// // errors/solutions
+// // -- https://stackoverflow.com/a/10779161    (added to the html file)
+// 
+// // https://stackoverflow.com/questions/13175510/call-python-function-from-javascript-code
+// // this is Jquery I guess...
+// // this is same too, about cors. 
+// // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
+// // https://www.mozilla.org/en-US/security/advisories/mfsa2019-21/#CVE-2019-11730
+// $.ajax({
+//   type: "POST",
+//   url: "~/array_to_image.py",
+//   data: { param: 'text'}
+// }).done(function( o ) {
+//    // do something
+// });
+
+
+
+
 
 
 
