@@ -1,3 +1,7 @@
+// I'll just stick with the curriculum of TOP, when the time comes, I can do the things I want.... I must move at the moment...
+
+
+
 // holy cow, in here https://www.favicon.cc/ you can create animation(gif) from the drawen sketches, and you can see the ones that made... I'll definitely create a database, I also decided on postgres instead of mysql after sqlite...
 
 
@@ -242,7 +246,7 @@ function floatTo255(number) {
 
 let ajaxButton = document.querySelector('#ajax-try');
 
-// ajaxButton.addEventListener('click', ajaxy);
+ajaxButton.addEventListener('click', ajaxy);
 
 // btw using firefox-developer-edition!!!!!!!!!!!
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
@@ -250,6 +254,8 @@ let ajaxButton = document.querySelector('#ajax-try');
 // // https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP    (reach here by search for: "OPTIONS is an HTTP/1.1 method that is used to determine further information from servers, and is a safe method" from parent link (just the above link in this javascript.js file))   (later gotta back to this for sure)
 // -- things gets on and on, for this stage, I'll just directly search for it...
 // also wait a minute, I'm in my current environment but how it would work for example through the internet while trying to reach the local file? Gotta run the python code etc... Idk how https://www.favicon.cc/ done it...
+// UPDATE: or just set up local server as written here https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp, in the end this is portofolio and when I learn things better, I change the things to work better...
+// // https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server
 
 function ajaxy() {
 	if (window.XMLHttpRequest)
@@ -265,8 +271,8 @@ function ajaxy() {
 
 
 	if (httpRequest.readyState == XMLHttpRequest.DONE) {
-	
-		console.log(httpRequest.readyState)
+		console.log('asfasdfasdfasdf');
+		console.log(httpRequest.readyState);
 		if (httpRequest.status == 200) {
 			// perfect
 			console.log(httpRequest.responseText);
@@ -281,23 +287,6 @@ function ajaxy() {
 	}
 
 }
-
-// // errors/solutions
-// // -- https://stackoverflow.com/a/10779161    (added to the html file)
-// 
-// // https://stackoverflow.com/questions/13175510/call-python-function-from-javascript-code
-// // this is Jquery I guess...
-// // this is same too, about cors. 
-// // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
-// // https://www.mozilla.org/en-US/security/advisories/mfsa2019-21/#CVE-2019-11730
-// $.ajax({
-//   type: "POST",
-//   url: "~/array_to_image.py",
-//   data: { param: 'text'}
-// }).done(function( o ) {
-//    // do something
-// });
-
 
 
 
