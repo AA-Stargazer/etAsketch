@@ -5,6 +5,41 @@
 // holy cow, in here https://www.favicon.cc/ you can create animation(gif) from the drawen sketches, and you can see the ones that made... I'll definitely create a database, I also decided on postgres instead of mysql after sqlite...
 
 
+// For image creating and saving, I'm leaving some links that open in the browser now (in order from left to right on my browser)...
+// -- https://www.google.com/search?q=javascript+image+from+div&ei=Xd3LYuOOI_bAxc8Pz-Oa4A4&ved=0ahUKEwijsZTUs_D4AhV2YPEDHc-xBuwQ4dUDCA0&uact=5&oq=javascript+image+from+div&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABMgUIIRCgATIFCCEQoAEyCAghEB4QFhAdMggIIRAeEBYQHTIKCCEQHhAPEBYQHTIKCCEQHhAPEBYQHTIKCCEQHhAPEBYQHTIICCEQHhAWEB0yCAghEB4QFhAdOgcIABBHELADOgQIABBDOgUIABCABDoFCAAQkQJKBQg8EgEySgQIQRgASgQIRhgAUKANWMIZYMkaaAJwAXgAgAHeAYgBnQ-SAQYwLjEyLjGYAQCgAQHIAQjAAQE&sclient=gws-wiz
+// -- https://www.google.com/search?q=javascript+create+image+from+div&ei=vd3LYvKBCqm_xc8P4dmeuAo&ved=0ahUKEwiy1N6BtPD4AhWpX_EDHeGsB6cQ4dUDCA0&uact=5&oq=javascript+create+image+from+div&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgYIABAeEBYyBggAEB4QFjIGCAAQHhAWMgYIABAeEBYyCAgAEB4QDxAWOgcIABBHELADOgcIABCwAxBDOgoIABDkAhCwAxgBOgQIABBDSgUIPBIBMUoECEEYAEoECEYYAVBSWOgNYKgPaAFwAXgAgAGvAYgB_QmSAQMwLjmYAQCgAQHIAQ_AAQHaAQYIARABGAk&sclient=gws-wiz
+// -- https://stackoverflow.com/questions/33668608/generate-an-image-of-a-div-and-save-as
+// https://eligrey.com/demos/FileSaver.js/ (so canvas is an element...)
+// -- https://www.google.com/search?q=javvascript+create+.ico+image&ei=Jt7LYtXAN629xc8P3_2CyAU&ved=0ahUKEwjV65S0tPD4AhWtXvEDHd--AFkQ4dUDCA0&uact=5&oq=javvascript+create+.ico+image&gs_lcp=Cgdnd3Mtd2l6EAMyBwghEAoQoAEyBwghEAoQoAEyCAghEB4QFhAdMggIIRAeEBYQHTIICCEQHhAWEB06CQgAEB4QsAMQDToLCAAQHhCwAxAIEA06DQgAEB4QDxCwAxAIEA06BAghEBVKBQg8EgExSgQIQRgBSgUIQBIBMUoECEYYAFDaAlivCWCjDGgBcAB4AIABvQGIAdEHkgEDMC42mAEAoAEByAEHwAEB&sclient=gws-wiz
+// -- https://stackoverflow.com/questions/63558462/how-to-parse-image-to-ico-format-in-javascript-client-side
+// -- https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob#Examples
+// -- https://dev.to/sbodi10/download-images-using-javascript-51a9
+// -- https://www.demo2s.com/javascript/html-canvas-create-an-image-from-scratch-using-pixel-data.html
+// -- https://www.google.com/search?q=javascript+run+python+code
+// -- https://stackoverflow.com/questions/13175510/call-python-function-from-javascript-code
+// -- https://www.w3schools.com/js/js_ajax_http_send.asp
+// -- https://discuss.dizzycoding.com/run-python-script-from-ajax-or-jquery/
+// -- https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started#step_3_%E2%80%93_a_simple_example
+// -- https://stackoverflow.com/questions/371875/local-file-access-with-javascript
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
