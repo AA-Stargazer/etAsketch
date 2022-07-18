@@ -1,6 +1,16 @@
 // I'll just stick with the curriculum of TOP, when the time comes, I can do the things I want.... I must move at the moment...
 
 
+// he finished hilariously xD: https://stackoverflow.com/a/52129332   (but I was there for my python httpserver giving 304, anyway, got the reason why it's throwen... could have been look a tthe http codes though....)
+// -- // A server should send a 304 Not Modified reply if the client sent a conditional request, like one having an If-Modified-Since header. This makes sense if the client already has a cached version of the page, and wants to avoid downloading the content if he already has the newest version of it.
+// -- // 
+// -- // In this case, the website seems to send a 304 to certain kinds of clients, as it seems: ones where the User-Agent seems to indicate automation (which is true, in your case).
+// -- // 
+// -- // The server should instead send a 4xx error code, probably a 403 Forbidden, but likely uses a 304 in order to throw bot writers off the right track and make them come to StackOverflow.
+// instead of local-host:8000, http://0.0.0.0:8000/
+
+
+
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
@@ -77,6 +87,7 @@ let currentColor = colorInput.value;
 // -- // hmm, this readState, we can do loading pages etc with if statements and global values (for asynchronous, you know, like keepiing the images for example in rock-paper-scissors)  inside the file..
 
 
+// NOTE transparency for background is unnecessary I guess, cuz, if we create transparency for background, then the pages' background color will be the main background color and the pixel's color will be mixed of the container's backgrounud color and the div's color itself depending of both ones transparency... Well we can also create few layers etc like we done for settings background color/box-shadow etc... But just adding background color should be enough for this stage I believe...
 
 
 
