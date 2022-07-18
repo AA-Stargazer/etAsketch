@@ -1,45 +1,6 @@
 // I'll just stick with the curriculum of TOP, when the time comes, I can do the things I want.... I must move at the moment...
 
 
-
-// holy cow, in here https://www.favicon.cc/ you can create animation(gif) from the drawen sketches, and you can see the ones that made... I'll definitely create a database, I also decided on postgres instead of mysql after sqlite...
-
-
-// For image creating and saving, I'm leaving some links that open in the browser now (in order from left to right on my browser)...
-// -- https://www.google.com/search?q=javascript+image+from+div&ei=Xd3LYuOOI_bAxc8Pz-Oa4A4&ved=0ahUKEwijsZTUs_D4AhV2YPEDHc-xBuwQ4dUDCA0&uact=5&oq=javascript+image+from+div&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABMgUIIRCgATIFCCEQoAEyCAghEB4QFhAdMggIIRAeEBYQHTIKCCEQHhAPEBYQHTIKCCEQHhAPEBYQHTIKCCEQHhAPEBYQHTIICCEQHhAWEB0yCAghEB4QFhAdOgcIABBHELADOgQIABBDOgUIABCABDoFCAAQkQJKBQg8EgEySgQIQRgASgQIRhgAUKANWMIZYMkaaAJwAXgAgAHeAYgBnQ-SAQYwLjEyLjGYAQCgAQHIAQjAAQE&sclient=gws-wiz
-// -- https://www.google.com/search?q=javascript+create+image+from+div&ei=vd3LYvKBCqm_xc8P4dmeuAo&ved=0ahUKEwiy1N6BtPD4AhWpX_EDHeGsB6cQ4dUDCA0&uact=5&oq=javascript+create+image+from+div&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgYIABAeEBYyBggAEB4QFjIGCAAQHhAWMgYIABAeEBYyCAgAEB4QDxAWOgcIABBHELADOgcIABCwAxBDOgoIABDkAhCwAxgBOgQIABBDSgUIPBIBMUoECEEYAEoECEYYAVBSWOgNYKgPaAFwAXgAgAGvAYgB_QmSAQMwLjmYAQCgAQHIAQ_AAQHaAQYIARABGAk&sclient=gws-wiz
-// -- https://stackoverflow.com/questions/33668608/generate-an-image-of-a-div-and-save-as
-// https://eligrey.com/demos/FileSaver.js/ (so canvas is an element...)
-// -- https://www.google.com/search?q=javvascript+create+.ico+image&ei=Jt7LYtXAN629xc8P3_2CyAU&ved=0ahUKEwjV65S0tPD4AhWtXvEDHd--AFkQ4dUDCA0&uact=5&oq=javvascript+create+.ico+image&gs_lcp=Cgdnd3Mtd2l6EAMyBwghEAoQoAEyBwghEAoQoAEyCAghEB4QFhAdMggIIRAeEBYQHTIICCEQHhAWEB06CQgAEB4QsAMQDToLCAAQHhCwAxAIEA06DQgAEB4QDxCwAxAIEA06BAghEBVKBQg8EgExSgQIQRgBSgUIQBIBMUoECEYYAFDaAlivCWCjDGgBcAB4AIABvQGIAdEHkgEDMC42mAEAoAEByAEHwAEB&sclient=gws-wiz
-// -- https://stackoverflow.com/questions/63558462/how-to-parse-image-to-ico-format-in-javascript-client-side
-// -- https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob#Examples
-// -- https://dev.to/sbodi10/download-images-using-javascript-51a9
-// -- https://www.demo2s.com/javascript/html-canvas-create-an-image-from-scratch-using-pixel-data.html
-// -- https://www.google.com/search?q=javascript+run+python+code
-// -- https://stackoverflow.com/questions/13175510/call-python-function-from-javascript-code
-// -- https://www.w3schools.com/js/js_ajax_http_send.asp
-// -- https://discuss.dizzycoding.com/run-python-script-from-ajax-or-jquery/
-// -- https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started#step_3_%E2%80%93_a_simple_example
-// -- https://stackoverflow.com/questions/371875/local-file-access-with-javascript
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
@@ -270,66 +231,4 @@ function hexToRgb(hex_color) {
 function floatTo255(number) {
 	return (number * 255).toFixed();
 }
-
-
-
-
-
-// ---------------------------------------------------------------------------------------------
-//
-// ------------------------------------------- AJAX --------------------------------------------
-
-let ajaxButton = document.querySelector('#ajax-try');
-
-ajaxButton.addEventListener('click', ajaxy);
-
-// btw using firefox-developer-edition!!!!!!!!!!!
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS   (from 'see also', 'CORS introduction' from just above link)
-// // https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP    (reach here by search for: "OPTIONS is an HTTP/1.1 method that is used to determine further information from servers, and is a safe method" from parent link (just the above link in this javascript.js file))   (later gotta back to this for sure)
-// -- things gets on and on, for this stage, I'll just directly search for it...
-// also wait a minute, I'm in my current environment but how it would work for example through the internet while trying to reach the local file? Gotta run the python code etc... Idk how https://www.favicon.cc/ done it...
-// UPDATE: or just set up local server as written here https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp, in the end this is portofolio and when I learn things better, I change the things to work better...
-// // https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server
-
-function ajaxy() {
-	if (window.XMLHttpRequest)
-		httpRequest = new XMLHttpRequest();
-	else if (window.ActiveXObject)
-		httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-	
-	httpRequest.onreadstatechange = function() {
-	}
-
-	httpRequest.open('GET', './array_to_image.py', true);
-	httpRequest.send()
-
-
-	if (httpRequest.readyState == XMLHttpRequest.DONE) {
-		console.log('asfasdfasdfasdf');
-		console.log(httpRequest.readyState);
-		if (httpRequest.status == 200) {
-			// perfect
-			console.log(httpRequest.responseText);
-		}
-		else {
-			// whoopsie, there was a problem...
-		}
-		
-	}
-	else {
-		// Not yet
-	}
-
-}
-
-
-
-
-
-
-
-
-
-
 
