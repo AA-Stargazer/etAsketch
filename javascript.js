@@ -57,34 +57,14 @@ let currentColor = colorInput.value;
 
 // UPDATE: might need to use alpha value between 0-255 instead of 0-1, for python PIL
 
-// as I saw here while to search for running python in js https://stackoverflow.com/a/13175665
-// Now I'm learning something called AJAX (finally, I can scrape the websites better I guess :D)
-// https://www.w3schools.com/js/js_ajax_intro.asp
-// -- // AJAX is a developer's dream, because you can:
-// -- // 
-// -- //     Read data from a web server - after the page has loaded
-// -- //     Update a web page without reloading the page
-// -- //     Send data to a web server - in the background
+
+
+
+
+
 
 // I wasn't sure but if it'll be there until late half 21st century, then it would worth it https://www.reddit.com/r/ruby/comments/lywt2z/is_ruby_rails_still_worth_learning_in_2021_and_is/
 // python has too many coder (users are spreadout, not depends on the programming language but popularity, relaibility etc...), the risk almost same for me... Just require me (as I have already should do it like) to believe and keep working...
-
-
-// Ajax links I'm going through in order (up to some point)
-// https://www.w3schools.com/js/js_ajax_intro.asp
-// https://www.w3schools.com/js/js_ajax_http.asp
-// - // The keystone of AJAX is the XMLHttpRequest object.
-// - //     Create an XMLHttpRequest object
-// - //     Define a callback function
-// - //     Open the XMLHttpRequest object
-// - //     Send a Request to a server
-// -- // For security reasons, modern browsers do not allow access across domains.
-// -- // XMLHttpRequest Object Methods
-// -- // XMLHttpRequest Object Properties 
-// -- // ...
-// https://www.rubyguides.com/2019/03/rails-ajax/ (this is maybe later to me...)
-// https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started (finally, I can understand the onready, .open, .ready )
-// -- // hmm, this readState, we can do loading pages etc with if statements and global values (for asynchronous, you know, like keepiing the images for example in rock-paper-scissors)  inside the file..
 
 
 // NOTE transparency for background is unnecessary I guess, cuz, if we create transparency for background, then the pages' background color will be the main background color and the pixel's color will be mixed of the container's backgrounud color and the div's color itself depending of both ones transparency... Well we can also create few layers etc like we done for settings background color/box-shadow etc... But just adding background color should be enough for this stage I believe...
