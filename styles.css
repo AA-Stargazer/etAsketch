@@ -55,6 +55,13 @@ html, body {
   	user-select: none;          /* Likely future */      
 }
 
+
+/*
+ * background-image comes on background-color
+ * and those color changes in the edges of the border, and can be changed with border-style!!! kinda, check it...
+ */
+
+
 .color-palette {
 	display: flex;
 	justify-content: center;
