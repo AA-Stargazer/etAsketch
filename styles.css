@@ -99,7 +99,7 @@ html, body {
 }
 
 .color-palette input#transparency-input {
-	width: 4.8cm;
+	width: 4.9cm;
 }
 
 .grid-size-input {
@@ -135,6 +135,7 @@ html, body {
 }
 
 .color-palette p.title-grid-size-input {
+	margin-top: -0.67cm;
 	margin-left: -3.5cm;
 }
 
@@ -146,19 +147,78 @@ hr {
 	background-color: #003638;
 }
 
+
+
+
+
+
 .change-settings-type {
-	margin-top: -0.3cm;
+	margin-top: -0.38cm;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.change-settings-type button{
+.change-settings-type > div {
+	width: 5cm;
+	height: 1cm;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.change-settings-type button {
+	width: 4cm;
+	
 	color: #b979b9;
 	background: rgb(0, 0, 0, 0.2);
+
 	/* sooo, that color in the corners of the left and right section, because of this border-style */
 	border-style: solid;
 	border-radius: 0.1cm;
-	border-width: 0.1cm;
+	border-width: 0.12cm;
 	border-color: #330033;
+
+	transition-duration: 0.2s;
 }
+
+
+.change-settings-type button:hover {
+	/* border-style: dotted;
+	 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+	 * not animatable
+	 */
+	width: 4.9cm;
+	border-width: 0.15cm 0.56cm;
+	font-size: 0.367cm;
+	cursor: pointer;
+}
+
+
+/* 
+ * searched for cilck...
+ * https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_active
+ *
+.change-settings-type button:active {
+	cursor: grabbing;
+}
+ *
+ */
+
+
+/*
+ * when I was searching for text shrik etc 
+ * -- https://www.w3schools.com/cssref/css3_pr_font-stretch.asp, 
+ * I came along to this stackoverflow 
+ * -- https://stackoverflow.com/questions/36992673/in-using-the-css-scale-property-to-shrink-a-css-logo-the-div-seems-to-to-mainta post, 
+ * then I searched for transform and boom, there is the thing something like I want 
+ * -- https://www.w3schools.com/cssref/css3_pr_transform.asp
+ */
+
+
+
 
 
 

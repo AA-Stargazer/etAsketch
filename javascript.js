@@ -60,6 +60,10 @@ let currentColor = colorInput.value;
 
 
 
+let changeColorSectionButton = document.querySelector('.change-setting-type button');
+
+
+
 
 
 // ---------------------------------------------------------------------------------------------
