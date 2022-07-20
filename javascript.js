@@ -13,6 +13,7 @@ function getPixelSize() {
 }
 
 
+
 let mouseDown = false;
 // document.onmousedown = () => { mouseDown = true }
 // document.onmouseup = () => { mouseDown = false }
@@ -24,6 +25,7 @@ document.body.onmouseup = () => { mouseDown = false }
 let colorInput = document.querySelector('#color-input');
 let gridSizeInput = document.querySelector('#grid-size-input');
 let transparencyInput = document.querySelector('#transparency-input');
+
 
 
 // TODO row number not updated along with gridSize!!!
@@ -57,17 +59,37 @@ let _colorPaletteTransitionDuration = getComputedStyle(colorPalette).getProperty
 // -- str.match() will return the same result as RegExp.exec().
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
 let colorPaletteTransitionDuration = parseInt(_colorPaletteTransitionDuration.match(regexNumber)[0]);
-
+let preventWindow = document.querySelector(".prevent-window");
 
 
 let changeColorSectionButton = document.querySelector('.change-settings-type button');
-changeColorSectionButton.addEventListener("click", () => {
+
+// // after click, when mouse was still on the button and not move, it wasn't triggering the :hover in the css. So I'm trying somethings like this...
+// // when I searched for it, I found .focus(), then need to undo the .focus(), peoples were refering the .blur() with jquery, but looks like it's works normally in javasscript too
+// // https://www.w3schools.com/jsref/met_html_blur.asp
+// // (same for 'mouseover', 'mouseenter')
+// changeColorSectionButton.addEventListener('mouseover', (event) => {
+// 	event.target.focus()
+// 	setTimeout(
+// 		() => {
+// 			event.target.blur();
+// 		}
+// 		, 1000
+// 	);
+// });
+// -------- But I still can't get a result like I want, so not too much thing is changed, but at least can blur the focus after turning the colorPalette...
+
+
+changeColorSectionButton.addEventListener("click", turnPalette);
+function turnPalette() {
 	let colorPaletteTitle = document.querySelector('.color-palette-title');
-	
+
+	timeToSleep = ((colorPaletteTransitionDuration / 2) * 1000) + 300;
 
 	if (colorPaletteTitle.innerText == "Sketch Settings")
 	{
 		colorPalette.style.transform = 'perspective(20cm) rotateY(90deg)';
+		preventWindow.style.zIndex = '1000';
 		setTimeout(
 			() => {
 				sketchSettingsDiv.style.display = 'none';
@@ -80,14 +102,24 @@ changeColorSectionButton.addEventListener("click", () => {
 				changeColorSectionButton.style.transform = "rotateY(180deg)";
 
 				changeColorSectionButton.innerText = 'Open Sketch Settings';
+
+				changeColorSectionButton.blur()
 			}
-			,((colorPaletteTransitionDuration / 2) * 1000) + 300
+			, timeToSleep
 		);
+		setTimeout(
+			() => {
+				preventWindow.style.zIndex = '-1000';
+			}
+			, colorPaletteTransitionDuration + 400
+		);
+
 	}
 	// ok, for such a situation, we shouldn't include leading and trailing spaces...
 	else if (colorPaletteTitle.innerText == "BG Settings")
 	{
 		colorPalette.style.transform = 'perspective(20cm) rotateY(90deg)';
+		preventWindow.style.zIndex = '1000';
 		setTimeout(
 			() => {
 				sketchSettingsDiv.style.display = 'flex';
@@ -100,14 +132,22 @@ changeColorSectionButton.addEventListener("click", () => {
 				changeColorSectionButton.style.transform = "rotateY(0deg)";
 
 				changeColorSectionButton.innerText = 'Open BG Settings';
+
+				changeColorSectionButton.blur()
+
 			}
-			,((colorPaletteTransitionDuration / 2) * 1000) + 300
+			, timeToSleep
+		);
+		setTimeout(
+			() => {
+				preventWindow.style.zIndex = '-1000';
+			}
+			, colorPaletteTransitionDuration + 400
 		);
 
 	}
 
-});
-
+}
 
 
 

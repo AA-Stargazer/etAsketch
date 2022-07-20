@@ -83,7 +83,7 @@ html, body {
 
 	background-color: #330033; 
 	
-	transition: 0.3s linear;
+	transition: 0.1s linear;
 }
 
 
@@ -186,6 +186,7 @@ hr {
 }
 
 
+
 .change-settings-type button {
 	width: 4cm;
 	margin-bottom: 0.7cm;
@@ -205,12 +206,28 @@ hr {
 
 
 
-.change-settings-type button:hover {
+.change-settings-type button:hover, .change-settings-type button:focus {
 	width: 4.9cm;
 	border-width: 0.15cm 0.56cm;
 	font-size: 0.367cm;
 	cursor: pointer;
 }
+
+
+
+.prevent-window {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+  	-ms-user-select: none;      /* IE 10+ */
+  	user-select: none;          /* Likely future */
+
+	z-index: -1000; /* display didn't work, will just adjust the z-index from the js... */
+}
+
+
 
 
 
