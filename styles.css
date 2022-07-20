@@ -82,6 +82,8 @@ html, body {
 	box-shadow: 0 0 0.5cm #53B8BB;	
 
 	background-color: #330033; 
+	
+	transition: 1s;
 }
 
 
@@ -89,8 +91,22 @@ html, body {
 	background-image: linear-gradient(to bottom right, rgb(255, 246, 0, var(--choice-background-transparency)), rgb(255, 0, 92, var(--choice-background-transparency)), rgb(129, 0, 52, var(--choice-background-transparency)), rgb(38, 0, 27, var(--choice-background-transparency)));
 }
 
+
+/* I want something like this for color-palette while turning it... But this is after I get to the somwhere in the middle of the javascript-backend path...
+ * https://3dtransforms.desandro.com/box
+ */
 .color-palette {		
+	justify-content: space-between;
 	background-image: linear-gradient(to bottom right, rgb(38, 0, 27, var(--choice-background-transparency)), rgb(129, 0, 52, var(--choice-background-transparency)), rgb(255, 0, 92, var(--choice-background-transparency)), rgb(255, 246, 0, var(--choice-background-transparency)));
+	transform-style: preserve-3d;
+}
+
+.color-palette > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.74cm;
 }
 
 .color-palette input#color-input {
@@ -112,52 +128,59 @@ html, body {
 }
 
 .color-palette p {
-	margin: -0.5cm;
-	margin-bottom: -0.8cm;
+	margin: -0.5mm;
 	padding: 0;
 	color: #F9DFDC;
 }
 
 .color-palette p.color-palette-title {
 	margin: -0.5cm;
-	margin-top: -0.1cm;
+	margin-top: 0;
 	margin-bottom: -0.4cm;
 	font-weight: 800;
 	font-size: 0.49cm;
 }
 
+.sketch-settings {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 0.12cm;
+}
+
 .color-palette p.title-color-input {
-	margin-left: -4.2cm;
 }
 
 .color-palette p.title-transparency-input {
-	margin-left: -2.4cm;
+	margin-top: 0.2cm;
 }
 
 .color-palette p.title-grid-size-input {
-	margin-top: -0.67cm;
-	margin-left: -3.5cm;
 }
+
 
 hr {
 	width: 80%;
 	margin: -0.2cm;
 	margin-top: -0.4cm;
-	margin-bottom: 0;
+	margin-bottom: -0.5cm;;
 	background-color: #003638;
 }
 
 
-
-
-
-
 .change-settings-type {
-	margin-top: -0.38cm;
+	/* 
+	 * Instead of margin-bottom (which would make the inside of the color-palette longer), we're using margin-top with negative value so we can pull the .change-settings-type to the top instead of pushing to the top... 
+	 * I mean, at least would work like that if justify-content of the parent wasn't 'space-between' etc...
+	 margin-top: -0.38cm;
+	 * can to margin-bottom to the button, or from the .color-palette, setting padding-bottom (but if there'snt't enough space, the .color-palette will get longer... idk what happens with max-height etc yet...) etc...
+	 */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+
 
 .change-settings-type > div {
 	width: 5cm;
@@ -166,11 +189,12 @@ hr {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 }
+
 
 .change-settings-type button {
 	width: 4cm;
+	margin-bottom: 0.7cm;
 	
 	color: #b979b9;
 	background: rgb(0, 0, 0, 0.2);
@@ -218,6 +242,28 @@ hr {
  */
 
 
+/* IMPORTANT UPDATE TO COMMENTS BELOW THIS: I found what I was looking for, in here https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style there's the parent element in the example, I inspected it and there was a property called "perspective" in the transform (gotta wrote this first (if will use it like perspective(100px) as one of the transform values, also this has different effect on the element)  in the transform values, otherwise wasn't affecting at all)
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/perspective
+ */
+
+/* https://stackoverflow.com/questions/55841149/how-to-achieve-depth-with-a-3d-css-transform
+ * -- https://codepen.io/jrichmeier/pen/Mwdojy?editors=1100
+ * IMPORTANT NOTE: maybe with box, 3d shape etc might work.. but you can still see in the link above, it has no depth at all. Especialy when you think from draw... when something going far away, it's gets smaller as look. with 3d shape, this might be a little bit eliiminated, but unless there isn't some stuff like shrinking the 1 side of the 1 face (I found it, it's perspective property), the depth won't be there at all, just will look ilke kinda....
+ *
+ * https://css-tricks.com/the-shapes-of-css/
+ * /
+
+
+
+ /*
+  * There are ton of website that don't use 3d animations as 3d objects... But for once even for understanding, it'd work and as this is profile website, I believe it's ok to use such things to show some skills, but gotta looks nice, as my principals, not because have to...
+  * we can still make lots of things with 2d and normal depth for 2d, also like in the drawing...
+  *
+  * -- this might have something I was thinking of:
+  * -- https://css-tricks.com/css-in-3d-learning-to-think-in-cubes-instead-of-boxes/
+  * -- https://css-tricks.com/how-to-make-a-pure-css-3d-package-toggle/
+  * -- but this is a bit different... I got some roads for this, also I need to move on, shouldn't stuck here for such much...
+  */
 
 
 

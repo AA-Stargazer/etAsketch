@@ -12,11 +12,13 @@
 		<div class="outer-main">
 			<div class="main">
 
+
 				<div class="selection-section">	
 					<div>
 						<button id="ajax-try">what's up ba ba booiiiii (ajax) </button>
 					</div>
 				</div>
+
 
 				<div class="grid-box"> <!-- irony, probably done with flex, firstly rows, then columns inside the rows... -->
 									   <!-- also can do with flex wrap, but rows-columns are better to use it later... -->
@@ -25,33 +27,52 @@
 					</div>
 				</div>
 
+
 				<div class="color-palette">
+					<div>
 					<p class="color-palette-title"> Sketch  Settings </p>
 					<hr>
 
-					<p class="title-color-input">Color</p>
-					<div class="div-color-input">
-						<input id="color-input" type="color">
+
+					<div class="sketch-settings">
+						<div>
+							<p class="title-color-input">Color</p>
+							<div class="div-color-input">
+								<input id="color-input" type="color">
+							</div>
+						</div>			
+						<div>
+							<p class="title-transparency-input">Transparency</p>
+							<div class="div-transparency-input">
+								<input id="transparency-input" type="range" min=0 max=100 value=100>
+							</div>
+						</div>
+						<div>
+							<p class="title-grid-size-input">Grid Size</p>
+							<div class="div-grid-size-input">
+								<input id="grid-size-input" type="number" min=16 max=40>
+							</div>
+						</div>
 					</div>
-					
-					<p class="title-transparency-input">Transparency</p>
-					<div class="div-transparency-input">
-						<input id="transparency-input" type="range" min=0 max=100 value=100>
+
+					<div class="background-settings" style="display: none;">
+						<div>
+							<p class="title-color-input">Color</p>
+							<div class="div-color-input">
+								<input id="color-input" type="color">
+							</div>
+						</div>
 					</div>
-					
-					<p class="title-grid-size-input">Grid Size</p>
-					<div class="div-grid-size-input">
-						<input id="grid-size-input" type="number" min=16 max=40>
 					</div>
+
 
 					<div class="change-settings-type">
 						<div> <!-- to not affect to other elements when changing height/width etc... -->
 							<button>Open BG Settings</button>
 						</div>
-					</div>
-
-					
+					</div>	
 				</div>
+
 
 			</div>
 		</div>
