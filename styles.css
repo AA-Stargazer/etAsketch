@@ -170,12 +170,6 @@ hr {
 
 
 .change-settings-type {
-	/* 
-	 * Instead of margin-bottom (which would make the inside of the color-palette longer), we're using margin-top with negative value so we can pull the .change-settings-type to the top instead of pushing to the top... 
-	 * I mean, at least would work like that if justify-content of the parent wasn't 'space-between' etc...
-	 margin-top: -0.38cm;
-	 * can to margin-bottom to the button, or from the .color-palette, setting padding-bottom (but if there'snt't enough space, the .color-palette will get longer... idk what happens with max-height etc yet...) etc...
-	 */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -199,7 +193,6 @@ hr {
 	color: #b979b9;
 	background: rgb(0, 0, 0, 0.2);
 
-	/* sooo, that color in the corners of the left and right section, because of this border-style */
 	border-style: solid;
 	border-radius: 0.1cm;
 	border-width: 0.12cm;
@@ -210,61 +203,11 @@ hr {
 
 
 .change-settings-type button:hover {
-	/* border-style: dotted;
-	 * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
-	 * not animatable
-	 */
 	width: 4.9cm;
 	border-width: 0.15cm 0.56cm;
 	font-size: 0.367cm;
 	cursor: pointer;
 }
-
-
-/* 
- * searched for cilck...
- * https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_active
- *
-.change-settings-type button:active {
-	cursor: grabbing;
-}
- *
- */
-
-
-/*
- * when I was searching for text shrik etc 
- * -- https://www.w3schools.com/cssref/css3_pr_font-stretch.asp, 
- * I came along to this stackoverflow 
- * -- https://stackoverflow.com/questions/36992673/in-using-the-css-scale-property-to-shrink-a-css-logo-the-div-seems-to-to-mainta post, 
- * then I searched for transform and boom, there is the thing something like I want 
- * -- https://www.w3schools.com/cssref/css3_pr_transform.asp
- */
-
-
-/* IMPORTANT UPDATE TO COMMENTS BELOW THIS: I found what I was looking for, in here https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style there's the parent element in the example, I inspected it and there was a property called "perspective" in the transform (gotta wrote this first (if will use it like perspective(100px) as one of the transform values, also this has different effect on the element)  in the transform values, otherwise wasn't affecting at all)
- * https://developer.mozilla.org/en-US/docs/Web/CSS/perspective
- */
-
-/* https://stackoverflow.com/questions/55841149/how-to-achieve-depth-with-a-3d-css-transform
- * -- https://codepen.io/jrichmeier/pen/Mwdojy?editors=1100
- * IMPORTANT NOTE: maybe with box, 3d shape etc might work.. but you can still see in the link above, it has no depth at all. Especialy when you think from draw... when something going far away, it's gets smaller as look. with 3d shape, this might be a little bit eliiminated, but unless there isn't some stuff like shrinking the 1 side of the 1 face (I found it, it's perspective property), the depth won't be there at all, just will look ilke kinda....
- *
- * https://css-tricks.com/the-shapes-of-css/
- * /
-
-
-
- /*
-  * There are ton of website that don't use 3d animations as 3d objects... But for once even for understanding, it'd work and as this is profile website, I believe it's ok to use such things to show some skills, but gotta looks nice, as my principals, not because have to...
-  * we can still make lots of things with 2d and normal depth for 2d, also like in the drawing...
-  *
-  * -- this might have something I was thinking of:
-  * -- https://css-tricks.com/css-in-3d-learning-to-think-in-cubes-instead-of-boxes/
-  * -- https://css-tricks.com/how-to-make-a-pure-css-3d-package-toggle/
-  * -- but this is a bit different... I got some roads for this, also I need to move on, shouldn't stuck here for such much...
-  */
-
 
 
 

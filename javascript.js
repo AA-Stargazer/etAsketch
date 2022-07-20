@@ -38,21 +38,6 @@ gridSizeInput.addEventListener('change', updateGridArea);
 let currentColor = colorInput.value;
 
 
-// TODO add radio button etc to the top right corner of color. So user can choose background color etc. And depending on the radio button, color and transparency affects to the background or the drawer. (we might hide transparency div for background option...
-// or just create another color input (background no need transparency,  also as will create option to have the background or not both in save part and color part...)
-// wait, I thought this for transparent colors looks different depending on the background color. But while downloading user might not want the background color. So when you created the save option, also add radio button for include the background color or not. Therefore also add second radio buttons for include background color or not...
-// NOTE, IMPORTANT NOTE, do these after completing the main page if you want to do ....
-// UPDATE, I'll take care of the design and what buttonn should be added etc..... 
-//
-// TODO might add eraser...
-// TODO add favicon option to set everything egiible to create a favicon...
-
-// UPDATE: might need to use alpha value between 0-255 instead of 0-1, for python PIL
-
-
-
-
-
 
 // I wasn't sure but if it'll be there until late half 21st century, then it would worth it https://www.reddit.com/r/ruby/comments/lywt2z/is_ruby_rails_still_worth_learning_in_2021_and_is/
 // python has too many coder (users are spreadout, not depends on the programming language but popularity, relaibility etc...), the risk almost same for me... Just require me (as I have already should do it like) to believe and keep working...
@@ -62,34 +47,13 @@ let currentColor = colorInput.value;
 
 
 
-// https://css-tricks.com/controlling-css-animations-transitions-javascript/
-// https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
 let colorPalette = document.querySelector('.color-palette');
 let colorPaletteTransitionDuration = console.log(getComputedStyle(colorPalette).getPropertyValue('transition-duration'));
 
 
-// NOTE instead of doing for loop to change every child element of the colorPalette, I'm creating 2 div for each sketch-settings and background-settings, so I can handle things with just 1-2 node...
-
-// I want to do something like this in order to have 3d object when we're turning the color-palette
-// -- https://3dtransforms.desandro.com/box
 let changeColorSectionButton = document.querySelector('.change-settings-type button');
 changeColorSectionButton.addEventListener("click", () => {
-	// // console.log("it's here");
-	// // colorPalette.style.transform = 'rotateY(60deg)';
-	// // colorPalette.style.transform = 'rotateY(80deg) translateX(100px)';
-	// // colorPalette.style.transform = 'rotateY(80deg) scale3d(1, 1, 1.5)';
-	// // colorPalette.style.transform = 'rotate3d(0, 1, 0, 45deg)';
-	// colorPalette.style.transform = 'rotateY(45deg) rotateZ(-15deg)';
-	// colorPalette.style.borderLeft = '25px solid transparent';
-	// colorPalette.style.borderRight = '25px solid transparent';
-	// colorPalette.style.transform = '  transform: translate(-50%, -50%) rotateX(-90deg) rotateY(-90deg) translate3d(0, 0, calc((var(--width) / 2) * 1vmin))';
-	// --- in css, we have max something like this I guess...
-
-	// colorPalette.style.perspective = '-20cm';
 	colorPalette.style.transform = 'perspective(20cm) rotateY(60deg)';
-
-
-
 
 });
 
