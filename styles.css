@@ -83,7 +83,7 @@ html, body {
 
 	background-color: #330033; 
 	
-	transition: 1s;
+	transition: 0.3s linear;
 }
 
 
@@ -198,8 +198,11 @@ hr {
 	border-width: 0.12cm;
 	border-color: #330033;
 
-	transition-duration: 0.2s;
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/transition */
+	/* don't make this more than the parent element's duration, otherwise, you see the button, for example, transformed after the parent's animation/transform etc is over... */
+	transition-duration: 0.1s;
 }
+
 
 
 .change-settings-type button:hover {

@@ -48,12 +48,63 @@ let currentColor = colorInput.value;
 
 
 let colorPalette = document.querySelector('.color-palette');
-let colorPaletteTransitionDuration = console.log(getComputedStyle(colorPalette).getPropertyValue('transition-duration'));
+let sketchSettingsDiv = document.querySelector('.sketch-settings');
+let backgroundSettingsDiv = document.querySelector('.background-settings');
+
+const regexNumber = /([\.\d])+/g;
+let _colorPaletteTransitionDuration = getComputedStyle(colorPalette).getPropertyValue('transition-duration');
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
+// -- str.match() will return the same result as RegExp.exec().
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+let colorPaletteTransitionDuration = parseInt(_colorPaletteTransitionDuration.match(regexNumber)[0]);
+
 
 
 let changeColorSectionButton = document.querySelector('.change-settings-type button');
 changeColorSectionButton.addEventListener("click", () => {
-	colorPalette.style.transform = 'perspective(20cm) rotateY(60deg)';
+	let colorPaletteTitle = document.querySelector('.color-palette-title');
+	
+
+	if (colorPaletteTitle.innerText == "Sketch Settings")
+	{
+		colorPalette.style.transform = 'perspective(20cm) rotateY(90deg)';
+		setTimeout(
+			() => {
+				sketchSettingsDiv.style.display = 'none';
+				backgroundSettingsDiv.style.display = 'flex';
+				colorPalette.style.transform = 'perspective(20cm) rotateY(180deg)';
+
+				colorPaletteTitle.innerText = " BG Settings ";
+				colorPaletteTitle.style.transform = "rotateY(180deg)";
+				backgroundSettingsDiv.style.transform = "rotateY(180deg)";
+				changeColorSectionButton.style.transform = "rotateY(180deg)";
+
+				changeColorSectionButton.innerText = 'Open Sketch Settings';
+			}
+			,((colorPaletteTransitionDuration / 2) * 1000) + 300
+		);
+	}
+	// ok, for such a situation, we shouldn't include leading and trailing spaces...
+	else if (colorPaletteTitle.innerText == "BG Settings")
+	{
+		colorPalette.style.transform = 'perspective(20cm) rotateY(90deg)';
+		setTimeout(
+			() => {
+				sketchSettingsDiv.style.display = 'flex';
+				backgroundSettingsDiv.style.display = 'none';
+				colorPalette.style.transform = 'perspective(20cm) rotateY(0deg)';
+
+				colorPaletteTitle.innerText = " Sketch Settings ";
+				colorPaletteTitle.style.transform = "rotateY(0deg)";
+				backgroundSettingsDiv.style.transform = "rotateY(0deg)";
+				changeColorSectionButton.style.transform = "rotateY(0deg)";
+
+				changeColorSectionButton.innerText = 'Open BG Settings';
+			}
+			,((colorPaletteTransitionDuration / 2) * 1000) + 300
+		);
+
+	}
 
 });
 
