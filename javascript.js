@@ -35,9 +35,9 @@ document.body.onmouseup = () => { mouseDown = false }
 
 let colorInput = document.querySelector('#color-input');
 let gridSizeInput = document.querySelector('#grid-size-input');
+let gridSizeInputNumber = document.querySelector('#grid-size-input-number');
 let transparencyInput = document.querySelector('#transparency-input');
 let transparencyInputNumber = document.querySelector('#transparency-input-number');
-let gridSizeInputNumber = document.querySelector('#grid-size-input-number');
 
 let bgColorInput = document.querySelector('.bg-color-input');
 let gridBox = document.querySelector('.grid-box');
@@ -285,7 +285,7 @@ function updateGridArea() {
 		gridSizeInput.value = 16;
 		gridSizeInputNumber.value = 16;
 	}
-	if (gridSizeInput.value > 40)
+	if (gridSizeInputNumber.value > 40)
 	{
 		gridSizeInput.value = 40;
 		gridSizeInputNumber.value = 40;

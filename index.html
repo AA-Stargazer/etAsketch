@@ -14,15 +14,23 @@
 
 
 				<div class="selection-section">	
+					
+
+
 					<div>
-						<button id="eraser">eraser</button>
+						<button id="reset-grid">reset grid</button>
 					</div>
 
 					<hr>
 
 					<div>
-						<button id="reset-grid">reset grid</button>
+						<p class="title-grid-size-input">Grid Size</p>
+						<div class="div-grid-size-input">
+							<input id="grid-size-input" type="range" min=16 max=40 value=16>
+							<input id="grid-size-input-number" type="number" min=16 max=40>
+						</div>
 					</div>
+
 				</div>
 
 
@@ -40,46 +48,49 @@
 					<div class="prevent-window"></div>
 
 					<div>
-					<p class="color-palette-title"> Sketch  Settings </p>
-					<hr>
+						<p class="color-palette-title"> Sketch  Settings </p>
+						<hr>
 
 
 
-					<div class="sketch-settings">
-						<div>
-							<p class="title-color-input">Color</p>
-							<div class="div-color-input">
-								<input id="color-input" type="color">
+						<div class="sketch-settings">
+							<div>
+								<p class="title-color-input">Color</p>
+								<div class="div-color-input">
+									<input id="color-input" type="color">
+								</div>
+							</div>			
+							<div>
+								<p class="title-transparency-input">Transparency</p>
+								<div class="div-transparency-input">
+									<input id="transparency-input" type="range" min=0 max=100 value=100>
+									<input id="transparency-input-number" type="number" min="0" max="100">
+								</div>
 							</div>
-						</div>			
-						<div>
-							<p class="title-transparency-input">Transparency</p>
-							<div class="div-transparency-input">
-								<input id="transparency-input" type="range" min=0 max=100 value=100>
-								<input id="transparency-input-number" type="number" min="0" max="100">
+						
+							<div class="sketch-buttons">
+								<button id="eraser">eraser</button>
+								<button id="hold-down">hold down</button>
 							</div>
+
 						</div>
-						<div>
-							<p class="title-grid-size-input">Grid Size</p>
-							<div class="div-grid-size-input">
-								<input id="grid-size-input" type="range" min=16 max=40 value=16>
-								<input id="grid-size-input-number" type="number" min=16 max=40>
+						
+
+											
+						<div class="background-settings" style="display: none;">
+							<div>
+								<p class="title-color-input">Color</p>
+								<div class="div-color-input">
+									<input id="color-input" class="bg-color-input" type="color">
+								</div>
 							</div>
 						</div>
 					</div>
-
-					<div class="background-settings" style="display: none;">
-						<div>
-							<p class="title-color-input">Color</p>
-							<div class="div-color-input">
-								<input id="color-input" class="bg-color-input" type="color">
-							</div>
-						</div>
-					</div>
-					</div>
-
+					
+					
 
 					<div class="change-settings-type">
+						<hr>
 						<div> <!-- to not affect to other elements when changing height/width etc... -->
 							<button>Open BG Settings</button>
 						</div>
