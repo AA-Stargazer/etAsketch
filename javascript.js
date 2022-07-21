@@ -26,7 +26,13 @@ let colorInput = document.querySelector('#color-input');
 let gridSizeInput = document.querySelector('#grid-size-input');
 let transparencyInput = document.querySelector('#transparency-input');
 
+let bgColorInput = document.querySelector('.bg-color-input');
+let gridBox = document.querySelector('.grid-box');
 
+
+let colorTextOfGridBox = getComputedStyle(container).getPropertyValue('background-color');
+// just hex colors affects, at least it was for this...
+bgColorInput.value = rgbToHex(getComputedStyle(gridBox).getPropertyValue('background-color'));
 
 // TODO row number not updated along with gridSize!!!
 
@@ -34,8 +40,13 @@ colorInput.addEventListener('change', updateColor);
 transparencyInput.addEventListener('change', updateColor);
 transparencyInput.value = 100;
 
+bgColorInput.addEventListener('change', (event) => {
+	gridBox.style.backgroundColor = event.target.value;
+});
+
 gridSizeInput.value = gridSize;
 gridSizeInput.addEventListener('change', updateGridArea);
+
 
 let currentColor = colorInput.value;
 
@@ -54,6 +65,7 @@ let sketchSettingsDiv = document.querySelector('.sketch-settings');
 let backgroundSettingsDiv = document.querySelector('.background-settings');
 
 const regexNumber = /([\.\d])+/g;
+// hmm but for the colorInput, we didn't need getComputerStyle... But we're getting the value that set from the css...
 let _colorPaletteTransitionDuration = getComputedStyle(colorPalette).getPropertyValue('transition-duration');
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
 // -- str.match() will return the same result as RegExp.exec().
@@ -236,6 +248,7 @@ function updateColor() {
 	currentColor = rgb_with_transparency;
 }
 
+
 function updateGridArea() {
 	console.log('asdf');
 	if (gridSizeInput.value < 16)
@@ -300,4 +313,75 @@ function hexToRgb(hex_color) {
 function floatTo255(number) {
 	return (number * 255).toFixed();
 }
+
+
+// hmm, I wrote a whole logic, but still can use some ready-to-use functions in javascript I guess, like so:
+// -- https://css-tricks.com/converting-color-spaces-in-javascript/#aa-rgb-to-hex  (also tried this but didn't work as I expected
+// -- https://stackoverflow.com/a/57805
+// but we also have parseInt
+	// pff, toString(), parseInt() etc not works. toString just works up to 16 I believe... So I gotta write this too, not too much thing changed...
+// works up to 255
+function rgbToHex(rgb_color) {
+
+	let numberRegex = /[\d\.]+/g;
+
+	let rgbArray = rgb_color.match(numberRegex);
+	
+	let r = parseInt(rgbArray[0]);
+	let g = parseInt(rgbArray[1]);
+	let b = parseInt(rgbArray[2]);
+
+	// pff, toString(), parseInt() etc not works as I expected. toString just works up to 16 I believe... So I gotta write this too, not too much thing changed...
+	
+
+	function decimalToHex(number) {
+			
+		function numToCharNum(num) {
+			switch(num) {
+				case 10:
+					return 'a';
+					break;
+				case 11:
+					return 'b';
+					break;
+				case 12:
+					return 'c';
+					break;
+				case 13:
+					return 'd';
+					break;
+				case 14:
+					return 'e';
+					break;
+				case 15:
+					return 'f';
+					break;
+				default:
+					return `${num}`;
+			}	
+		}
+		if (number > 16) {
+			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+			division = Math.floor(number / 16);
+			left = `${numToCharNum(division)}`;
+			right = `${numToCharNum(number - division * 16)}`;
+			return left + right;
+		}
+		else
+		{
+			return '0' + `${numToCharNum(number)}`;
+		}
+	}
+	
+	r = decimalToHex(r);
+	g = decimalToHex(g);
+	b = decimalToHex(b);
+
+
+  return "#" + r + g + b;
+}
+
+
+
+
 
