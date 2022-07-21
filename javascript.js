@@ -2,12 +2,16 @@
 
 
 
-// TODO add eraser
-// TODO add button for sketch to act like mouse is always held down, so it can be like 'etch a sketch'
+
+// TODO, add colorful or normal color (which just the color you choose) mode...
+
+
 // NOTE no need to everything we see I think, we got decent enough of things, and gotta move on...
 // NOTE don't add some opposite or crucial buttons on and on like eraser next to reset the grid...
 // -- UPDATE TO THE NOTE: we don't have too much space and I believe the sketch-settings has enough settings in the front, maybe a button to open another div for some buttons for sketch settings, so we can carry some buttons to there... But this is later...
 
+
+// there are lots of competitive ideas in TOP https://abarnes1.github.io/etch-a-sketch/, also simple ones like this https://michalosman.github.io/etch-a-sketch/ are loved more than the other ones... Should be catchy, easy to use etc... anyway. My is still not bad I believe...
 
 
 // -----------------------------------------------------------------------
@@ -15,7 +19,7 @@ let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
 let eraserOn = false;
-let sketchHoldDown = true;
+let sketchHoldDown = false;
 
 let container = document.querySelector('.container');
 
@@ -41,6 +45,51 @@ let transparencyInputNumber = document.querySelector('#transparency-input-number
 
 let bgColorInput = document.querySelector('.bg-color-input');
 let gridBox = document.querySelector('.grid-box');
+
+
+
+let eraserButton = document.querySelector('#eraser');
+let holdDownButton = document.querySelector('#hold-down');
+
+// playing with classes didn't work as I wanted, will directly change the properties...
+eraserButton.addEventListener('click', (event) => {
+	if (eraserOn)
+	{
+		event.target.style.backgroundColor = 'rgb(0, 0, 0, 0.2)';
+		event.target.style.borderWidth = '0.13cm';
+		event.target.style.fontSize = '3.7mm';
+
+		eraserOn = false;
+	}
+	else
+	{
+		event.target.style.backgroundColor = 'rgb(83, 184, 187, 0.1)';
+		event.target.style.borderWidth = '2mm';
+		event.target.style.fontSize = '4mm';
+
+		eraserOn = true;
+	}
+});
+holdDownButton.addEventListener('click', (event) => {
+	if (sketchHoldDown)
+	{
+		event.target.style.backgroundColor = 'rgb(0, 0, 0, 0.2)';
+		event.target.style.borderWidth = '0.13cm';
+		event.target.style.fontSize = '3.7mm';
+
+		sketchHoldDown = false;
+	}
+	else
+	{
+		event.target.style.backgroundColor = 'rgb(83, 184, 187, 0.1)';
+		event.target.style.borderWidth = '2mm';
+		event.target.style.fontSize = '4mm';
+
+		sketchHoldDown = true;
+	}
+});
+
+
 
 
 
@@ -362,22 +411,22 @@ function rgbToHex(rgb_color) {
 		function numToCharNum(num) {
 			switch(num) {
 				case 10:
-					return 'a';
+					return 'A';
 					break;
 				case 11:
-					return 'b';
+					return 'B';
 					break;
 				case 12:
-					return 'c';
+					return 'C';
 					break;
 				case 13:
-					return 'd';
+					return 'D';
 					break;
 				case 14:
-					return 'e';
+					return 'E';
 					break;
 				case 15:
-					return 'f';
+					return 'F';
 					break;
 				default:
 					return `${num}`;

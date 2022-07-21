@@ -213,13 +213,16 @@ hr {
 }
 
 .sketch-buttons {
+	display: flex;
+	gap: 0.1cm;
 	margin-top: 0.5cm;
 }
 .sketch-buttons button { /* gotta write this after the styles for the buttons, otherwise as this is not more specific in selection, this is not affects... */
 	width: 2.5cm;
+	height: 1cm;
 }
 
-.sketch-button button:hover {
+.sketch-buttons button:hover {
 	cursor: pointer;
 }
 
@@ -244,6 +247,12 @@ hr {
 
 	z-index: -1000; /* display didn't work, will just adjust the z-index from the js... */
 }
+
+
+.div-reset-grid {
+	height: 1cm;
+}
+
 
 
 /* ---------------------------------------------- */
@@ -274,9 +283,9 @@ input[type="range"] {
   -webkit-appearance: none;
   margin-right: 15px;
   height: 0.1cm;
-  background: rgba(255, 255, 255, 0.6);
+  background: #53B8BB;
   border-radius: 5px;
-  background-color: red;
+  background-color: #53B8BB;
   background-size: 70% 100%;
   background-repeat: no-repeat;
 }
@@ -297,7 +306,7 @@ input[type="range"]::-moz-range-thumb {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #ff4500;
+  background: rgb(38, 0, 27, 0.9);
   box-shadow: 0 0 2px 0 #555;
   transition: background .3s ease-in-out;
 }
@@ -307,21 +316,21 @@ input[type="range"]::-ms-thumb {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: red;
-  box-shadow: 0 0 2px 0 red;
+  background: #53B8BB;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
   transition: background .3s ease-in-out;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
-  background: #ff0200;
+  background: rgb(38, 0, 27, 1);
 }
 
 input[type="range"]::-moz-range-thumb:hover {
-  background: #ff0200;
+  background: rgb(38, 0, 27, 1);
 }
 
 input[type="range"]::-ms-thumb:hover {
-  background: #ff0200;
+  background: rgb(38, 0, 27, 1);
 }
 
 /* Input Track */
