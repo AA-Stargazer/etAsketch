@@ -1,5 +1,13 @@
 // I'll just stick with the curriculum of TOP, when the time comes, I can do the things I want.... I must move at the moment...
 
+
+// TODO add eraser
+// TODO add button for grade to act like mouse is always held down, so it can be like 'etch a sketch'
+
+
+
+
+// -----------------------------------------------------------------------
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
@@ -130,6 +138,13 @@ function turnPalette() {
 
 	}
 }
+
+
+// --------------------------------------------------------------------------------------------
+let resetButton = document.querySelector("#reset-grid");
+resetButton.addEventListener('click', () => {
+	createDrawArea();	
+});
 
 
 
