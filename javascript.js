@@ -15,8 +15,6 @@ function getPixelSize() {
 
 
 let mouseDown = false;
-// document.onmousedown = () => { mouseDown = true }
-// document.onmouseup = () => { mouseDown = false }
 document.body.onmousedown = () => { mouseDown = true }
 document.body.onmouseup = () => { mouseDown = false }
 
@@ -52,45 +50,17 @@ let currentColor = colorInput.value;
 
 
 
-// I wasn't sure but if it'll be there until late half 21st century, then it would worth it https://www.reddit.com/r/ruby/comments/lywt2z/is_ruby_rails_still_worth_learning_in_2021_and_is/
-// python has too many coder (users are spreadout, not depends on the programming language but popularity, relaibility etc...), the risk almost same for me... Just require me (as I have already should do it like) to believe and keep working...
-
-
-// NOTE transparency for background is unnecessary I guess, cuz, if we create transparency for background, then the pages' background color will be the main background color and the pixel's color will be mixed of the container's backgrounud color and the div's color itself depending of both ones transparency... Well we can also create few layers etc like we done for settings background color/box-shadow etc... But just adding background color should be enough for this stage I believe...
-
-
-
 let colorPalette = document.querySelector('.color-palette');
 let sketchSettingsDiv = document.querySelector('.sketch-settings');
 let backgroundSettingsDiv = document.querySelector('.background-settings');
 
 const regexNumber = /([\.\d])+/g;
-// hmm but for the colorInput, we didn't need getComputerStyle... But we're getting the value that set from the css...
 let _colorPaletteTransitionDuration = getComputedStyle(colorPalette).getPropertyValue('transition-duration');
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
-// -- str.match() will return the same result as RegExp.exec().
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
 let colorPaletteTransitionDuration = parseInt(_colorPaletteTransitionDuration.match(regexNumber)[0]);
 let preventWindow = document.querySelector(".prevent-window");
 
 
 let changeColorSectionButton = document.querySelector('.change-settings-type button');
-
-// // after click, when mouse was still on the button and not move, it wasn't triggering the :hover in the css. So I'm trying somethings like this...
-// // when I searched for it, I found .focus(), then need to undo the .focus(), peoples were refering the .blur() with jquery, but looks like it's works normally in javasscript too
-// // https://www.w3schools.com/jsref/met_html_blur.asp
-// // (same for 'mouseover', 'mouseenter')
-// changeColorSectionButton.addEventListener('mouseover', (event) => {
-// 	event.target.focus()
-// 	setTimeout(
-// 		() => {
-// 			event.target.blur();
-// 		}
-// 		, 1000
-// 	);
-// });
-// -------- But I still can't get a result like I want, so not too much thing is changed, but at least can blur the focus after turning the colorPalette...
-
 
 changeColorSectionButton.addEventListener("click", turnPalette);
 function turnPalette() {
@@ -158,7 +128,6 @@ function turnPalette() {
 		);
 
 	}
-
 }
 
 
@@ -264,17 +233,13 @@ function updateGridArea() {
 createDrawArea();
 
 
-// when I searched for str to int mdn... parseInt() can convert the hex to decimal ...
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
 function hexToRgb(hex_color) {
 
-	// console.log(typeof hex_color);
 
 	let hexRed = hex_color[1] + hex_color[2];
 	let hexGreen = hex_color[3] + hex_color[4];
 	let hexBlue = hex_color[5] + hex_color[6];
 
-	// console.log(hexRed, hexGreen, hexBlue);
 
 	function hexToDecimal(number) {
 		
@@ -315,11 +280,6 @@ function floatTo255(number) {
 }
 
 
-// hmm, I wrote a whole logic, but still can use some ready-to-use functions in javascript I guess, like so:
-// -- https://css-tricks.com/converting-color-spaces-in-javascript/#aa-rgb-to-hex  (also tried this but didn't work as I expected
-// -- https://stackoverflow.com/a/57805
-// but we also have parseInt
-	// pff, toString(), parseInt() etc not works. toString just works up to 16 I believe... So I gotta write this too, not too much thing changed...
 // works up to 255
 function rgbToHex(rgb_color) {
 
@@ -330,9 +290,6 @@ function rgbToHex(rgb_color) {
 	let r = parseInt(rgbArray[0]);
 	let g = parseInt(rgbArray[1]);
 	let b = parseInt(rgbArray[2]);
-
-	// pff, toString(), parseInt() etc not works as I expected. toString just works up to 16 I believe... So I gotta write this too, not too much thing changed...
-	
 
 	function decimalToHex(number) {
 			
@@ -361,7 +318,6 @@ function rgbToHex(rgb_color) {
 			}	
 		}
 		if (number > 16) {
-			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
 			division = Math.floor(number / 16);
 			left = `${numToCharNum(division)}`;
 			right = `${numToCharNum(number - division * 16)}`;

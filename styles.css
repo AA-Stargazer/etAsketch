@@ -93,9 +93,6 @@ html, body {
 }
 
 
-/* I want something like this for color-palette while turning it... But this is after I get to the somwhere in the middle of the javascript-backend path...
- * https://3dtransforms.desandro.com/box
- */
 .color-palette {		
 	justify-content: space-between;
 	background-image: linear-gradient(to bottom right, rgb(38, 0, 27, var(--choice-background-transparency)), rgb(129, 0, 52, var(--choice-background-transparency)), rgb(255, 0, 92, var(--choice-background-transparency)), rgb(255, 246, 0, var(--choice-background-transparency)));
@@ -200,7 +197,6 @@ hr {
 	border-width: 0.12cm;
 	border-color: #330033;
 
-	/* https://developer.mozilla.org/en-US/docs/Web/CSS/transition */
 	/* don't make this more than the parent element's duration, otherwise, you see the button, for example, transformed after the parent's animation/transform etc is over... */
 	transition-duration: 0.1s;
 }
