@@ -195,7 +195,7 @@ hr {
 	border-style: solid;
 	border-radius: 0.1cm;
 	border-width: 0.12cm;
-	border-color: #330033;
+	border-color: #26001B;
 
 	/* don't make this more than the parent element's duration, otherwise, you see the button, for example, transformed after the parent's animation/transform etc is over... */
 	transition-duration: 0.1s;
@@ -226,5 +226,24 @@ hr {
 
 
 
+.selection-section button {
+	width: 4cm;
+	color: #b979b9;
+	background: rgb(0, 0, 0, 0.2);
 
+	border-style: solid;
+	border-radius: 0.1cm;
+	border-width: 0.12cm;
+	border-color: #26001B;
+
+	transition-duration: 0.1s;
+}
+
+.selection-section button:hover {		
+	width: 4.9cm;
+	border-width: 0.15cm 0.56cm;
+	font-size: 0.367cm;
+	cursor: pointer;
+
+}
 

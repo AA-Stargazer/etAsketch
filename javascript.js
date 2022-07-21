@@ -3,7 +3,7 @@
 
 // TODO add eraser
 // TODO add button for grade to act like mouse is always held down, so it can be like 'etch a sketch'
-
+// NOTE no need to everything we see I think, we got decent enough of things, and gotta move on...
 
 
 
@@ -34,6 +34,7 @@ let transparencyInput = document.querySelector('#transparency-input');
 
 let bgColorInput = document.querySelector('.bg-color-input');
 let gridBox = document.querySelector('.grid-box');
+
 
 
 let colorTextOfGridBox = getComputedStyle(container).getPropertyValue('background-color');
