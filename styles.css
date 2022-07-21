@@ -113,17 +113,21 @@ html, body {
 }
 
 .color-palette input#transparency-input {
-	width: 4.9cm;
+	width: 2.8cm;
 }
-
 .grid-size-input {
 	max: 40;
 	min: 16;
 }
 
 .color-palette input#grid-size-input {
-	width: 4.7cm;
+	width: 2.8cm;
 }
+
+.color-palette input[type="number"]{
+	width: 1.2cm;
+}
+
 
 .color-palette p {
 	margin: -0.5mm;
@@ -185,9 +189,8 @@ hr {
 
 
 
-.change-settings-type button {
+.change-settings-type button, .selection-section button  {
 	width: 4cm;
-	margin-bottom: 0.7cm;
 	
 	color: #b979b9;
 	background: rgb(0, 0, 0, 0.2);
@@ -201,9 +204,12 @@ hr {
 	transition-duration: 0.1s;
 }
 
+.change-settings-type button {
+	margin-bottom: 0.7cm;
+}
 
 
-.change-settings-type button:hover, .change-settings-type button:focus {
+.change-settings-type button:hover, .selection-section button:hover  {
 	width: 4.9cm;
 	border-width: 0.15cm 0.56cm;
 	font-size: 0.367cm;
@@ -225,25 +231,104 @@ hr {
 }
 
 
-
-.selection-section button {
-	width: 4cm;
-	color: #b979b9;
-	background: rgb(0, 0, 0, 0.2);
-
-	border-style: solid;
-	border-radius: 0.1cm;
-	border-width: 0.12cm;
-	border-color: #26001B;
-
-	transition-duration: 0.1s;
-}
-
-.selection-section button:hover {		
-	width: 4.9cm;
-	border-width: 0.15cm 0.56cm;
-	font-size: 0.367cm;
-	cursor: pointer;
+/* ---------------------------------------------- */
+/* https://www.cssportal.com/style-input-range/
+ * https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+ * --
+ * https://nikitahl.com/style-range-input-css
+ * --
+ */
+input[type=”range”]{
 
 }
+input[type=”range”]::-webkit-slider-runnable-trac{
+
+}
+
+input[type=”range”]::-moz-range-tra {
+
+}
+
+input[type=”range”]::-ms-trac {
+
+}
+
+
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  height: 0.1cm;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  background-color: red;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Input Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #ff4500;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background .3s ease-in-out;
+}
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #ff4500;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background .3s ease-in-out;
+}
+
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: red;
+  box-shadow: 0 0 2px 0 red;
+  transition: background .3s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #ff0200;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background: #ff0200;
+}
+
+input[type="range"]::-ms-thumb:hover {
+  background: #ff0200;
+}
+
+/* Input Track */
+input[type=range]::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+input[type=range]::-moz-range-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+input[type="range"]::-ms-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
 

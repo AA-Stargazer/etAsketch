@@ -1,9 +1,12 @@
 // I'll just stick with the curriculum of TOP, when the time comes, I can do the things I want.... I must move at the moment...
 
 
+
 // TODO add eraser
-// TODO add button for grade to act like mouse is always held down, so it can be like 'etch a sketch'
+// TODO add button for sketch to act like mouse is always held down, so it can be like 'etch a sketch'
 // NOTE no need to everything we see I think, we got decent enough of things, and gotta move on...
+// NOTE don't add some opposite or crucial buttons on and on like eraser next to reset the grid...
+// -- UPDATE TO THE NOTE: we don't have too much space and I believe the sketch-settings has enough settings in the front, maybe a button to open another div for some buttons for sketch settings, so we can carry some buttons to there... But this is later...
 
 
 
@@ -11,6 +14,8 @@
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
+let eraserOn = false;
+let sketchHoldDown = true;
 
 let container = document.querySelector('.container');
 
@@ -31,6 +36,8 @@ document.body.onmouseup = () => { mouseDown = false }
 let colorInput = document.querySelector('#color-input');
 let gridSizeInput = document.querySelector('#grid-size-input');
 let transparencyInput = document.querySelector('#transparency-input');
+let transparencyInputNumber = document.querySelector('#transparency-input-number');
+let gridSizeInputNumber = document.querySelector('#grid-size-input-number');
 
 let bgColorInput = document.querySelector('.bg-color-input');
 let gridBox = document.querySelector('.grid-box');
@@ -44,19 +51,37 @@ bgColorInput.value = rgbToHex(getComputedStyle(gridBox).getPropertyValue('backgr
 // TODO row number not updated along with gridSize!!!
 
 colorInput.addEventListener('change', updateColor);
-transparencyInput.addEventListener('change', updateColor);
+let currentColor = colorInput.value;
+
 transparencyInput.value = 100;
+transparencyInput.addEventListener('input', (event) => {
+	updateColor();
+	transparencyInputNumber.value = event.target.value;
+});
+transparencyInputNumber.addEventListener('input', () => {
+	updateColor();
+	transparencyInput.value = event.target.value;
+});
+transparencyInputNumber.value = 100;
 
 bgColorInput.addEventListener('change', (event) => {
 	gridBox.style.backgroundColor = event.target.value;
 });
 
+
 gridSizeInput.value = gridSize;
-gridSizeInput.addEventListener('change', updateGridArea);
+gridSizeInput.addEventListener('input', (event) => {
+	updateGridArea();
+	gridSizeInputNumber.value = event.target.value;
+});
+// I saw  input in https://codepen.io/tippingpointdev/pen/bGgLqLY, it's more responsive and changes concurrently. But for this particular gridSizeInput, for example you'll write 18 from scrath, with 'input', when you press 1, it will update to min value as I wrote the if statement. That's why this is 'change', so program can wait user to finish it's the input...
+gridSizeInputNumber.addEventListener('change', ()=> {
+	updateGridArea();
+	gridSizeInput.value = event.target.value;
+});
+gridSizeInputNumber.value = gridSize;
 
 
-
-let currentColor = colorInput.value;
 
 
 
@@ -170,11 +195,25 @@ function containerCreate() {
 
 			// this works while sliding the cursor through the container...
 			tmpPixel.addEventListener('mouseenter',
-				() => {
-					// if (mouseDown)
-					// {
-						tmpPixel.style.backgroundColor = currentColor;
-					// }
+				(event) => {
+
+					if (sketchHoldDown)
+					{
+						if (eraserOn)
+							tmpPixel.style.background = 'none';
+						else
+							tmpPixel.style.backgroundColor = currentColor;
+					}
+					else
+					{
+						if (mouseDown)
+						{
+							if (eraserOn)
+								tmpPixel.style.background = 'none';
+							else
+								tmpPixel.style.backgroundColor = currentColor;
+						}
+					}
 				}
 			);
 
@@ -226,6 +265,11 @@ function createDrawArea() {
 
 // ---------------------- COLOR/COLOUR ----------------
 function updateColor() {
+	if (transparencyInputNumber.value > 100)
+		transparencyInputNumber.value = 100;
+	else if (transparencyInputNumber.value < 0)
+		transparencyInputNumber.value = 0;
+
 	let rgb = hexToRgb(colorInput.value);
 	let rgb_with_transparency = rgb.slice(0, -1) + ', ' + transparencyInput.value / 100 + ')';
 	console.log(rgb_with_transparency);
@@ -236,10 +280,16 @@ function updateColor() {
 
 function updateGridArea() {
 	console.log('asdf');
-	if (gridSizeInput.value < 16)
+	if (gridSizeInputNumber.value < 16)
+	{
 		gridSizeInput.value = 16;
+		gridSizeInputNumber.value = 16;
+	}
 	if (gridSizeInput.value > 40)
+	{
 		gridSizeInput.value = 40;
+		gridSizeInputNumber.value = 40;
+	}
 	updateColor();
 	gridSize = gridSizeInput.value;;
 	createDrawArea();
