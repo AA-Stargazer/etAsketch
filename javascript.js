@@ -46,6 +46,7 @@ gridSizeInput.value = gridSize;
 gridSizeInput.addEventListener('change', updateGridArea);
 
 
+
 let currentColor = colorInput.value;
 
 
@@ -154,11 +155,10 @@ function containerCreate() {
 			// this works while sliding the cursor through the container...
 			tmpPixel.addEventListener('mouseenter',
 				() => {
-					if (mouseDown)
-					{
-						// this.style.backgroundColor = currentColor;
+					// if (mouseDown)
+					// {
 						tmpPixel.style.backgroundColor = currentColor;
-					}
+					// }
 				}
 			);
 
