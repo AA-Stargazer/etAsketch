@@ -25,9 +25,24 @@
 
 
 
-
-
-
+// as an example, someone managed to do something like this I guess: 
+// https://www.reddit.com/r/learnjavascript/comments/ikilm5/i_made_this/
+// https://redyelruc.github.io/
+// https://www.reddit.com/r/learnjavascript/comments/ikilm5/comment/g3tz6mt/
+// - I checked the website and in the capture button, onclick, calls this function:
+// -- // function captureSketchpad() {
+// -- //     sketchpad = document.getElementById("sketchpad");
+// -- //     html2canvas(sketchpad, { onrendered:function(canvas){
+// -- //         let imageURL = canvas.toDataURL('sketch/png');
+// -- //         let win = window.open(imageURL,"_new");
+// -- //         win.document.write("<head><title>Sketch.png</title></head>");
+// -- //         win.document.write(`<a download="sketch.png" href='${canvas.toDataURL("sketch/png")}'>`);
+// -- //         win.document.write("<img src= '"+ canvas.toDataURL("sketch/png") + "'/></a>");
+// -- //         win.document.write("<p>Click image to download</p>");
+// -- //         }
+// -- //     });
+// -- // }
+// -, oh, it's using html2canvas too, I saw that in the accepted answer in the https://stackoverflow.com/questions/18581379/how-to-save-the-contents-of-a-div-as-a-image, https://stackoverflow.com/a/18581496,... I don't want such a thing... I want pure js as much as possible... otherwise how can I understand it?. I still need some time for such a thing I guess...
 
 
 
