@@ -1,8 +1,3 @@
-// I'll just stick with the curriculum of TOP, when the time comes, I can do the things I want.... I must move at the moment...
-
-
-
-
 // TODO, add colorful or normal color (which just the color you choose) mode...
 
 
@@ -11,47 +6,90 @@
 // -- UPDATE TO THE NOTE: we don't have too much space and I believe the sketch-settings has enough settings in the front, maybe a button to open another div for some buttons for sketch settings, so we can carry some buttons to there... But this is later...
 
 
-// there are lots of competitive ideas in TOP https://abarnes1.github.io/etch-a-sketch/, also simple ones like this https://michalosman.github.io/etch-a-sketch/ are loved more than the other ones... Should be catchy, easy to use etc... anyway. My is still not bad I believe...
 
 
-// -----------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+//
+// ---------------------------------------- DECLARATIONS ---------------------------------------
+
+let container = document.querySelector('.container');
+
+
+// ------------- ELEMENTS ----------- 
+
+// -- color-palette
+let colorPalette = document.querySelector('.color-palette');
+let sketchSettingsDiv = document.querySelector('.sketch-settings');
+let backgroundSettingsDiv = document.querySelector('.background-settings');
+
+let colorInput = document.querySelector('#color-input');
+
+let transparencyInput = document.querySelector('#transparency-input');
+let transparencyInputNumber = document.querySelector('#transparency-input-number');
+
+let eraserButton = document.querySelector('#eraser');
+let holdDownButton = document.querySelector('#hold-down');
+
+let bgColorInput = document.querySelector('.bg-color-input');
+
+let preventWindow = document.querySelector(".prevent-window");
+let changeColorSectionButton = document.querySelector('.change-settings-type button');
+
+// -- gridbox
+let gridBox = document.querySelector('.grid-box');
+
+// -- selection section
+let resetButton = document.querySelector("#reset-grid");
+
+let gridSizeInput = document.querySelector('#grid-size-input');
+let gridSizeInputNumber = document.querySelector('#grid-size-input-number');
+
+
+
+// ------------ VALUES -----------
 let gridSize = 16;
 let pixelArray = []; // row div's not inside this. But from the 2nd dimensional array's index, you can reach the row div from document
 let i, k;
 let eraserOn = false;
 let sketchHoldDown = false;
-
-let container = document.querySelector('.container');
-
 let pixelSize = getPixelSize();
-
-function getPixelSize() {
-	return container.offsetHeight / gridSize
-}
-
-
-
 let mouseDown = false;
+let colorTextOfGridBox = getComputedStyle(container).getPropertyValue('background-color');
+let currentColor = colorInput.value;
+let _colorPaletteTransitionDuration = getComputedStyle(colorPalette).getPropertyValue('transition-duration');
+let colorPaletteTransitionDuration = parseInt(_colorPaletteTransitionDuration.match(regexNumber)[0]);
+
+
+
+
+// ----------- REGEX ------------
+const regexNumber = /([\.\d])+/g;
+
+
+// ----------------------------------------------------------------------------------------------
+//
+// -------------------- EVENT LISTENERS / ELEMENT SPECIFIC THINGS -------------------------------
 document.body.onmousedown = () => { mouseDown = true }
 document.body.onmouseup = () => { mouseDown = false }
 
 
 
-let colorInput = document.querySelector('#color-input');
-let gridSizeInput = document.querySelector('#grid-size-input');
-let gridSizeInputNumber = document.querySelector('#grid-size-input-number');
-let transparencyInput = document.querySelector('#transparency-input');
-let transparencyInputNumber = document.querySelector('#transparency-input-number');
+// ------------ SKETCH SETTINGS ------------
+colorInput.addEventListener('change', updateColor);
 
-let bgColorInput = document.querySelector('.bg-color-input');
-let gridBox = document.querySelector('.grid-box');
+transparencyInput.value = 100;
+transparencyInput.addEventListener('input', (event) => {
+	updateColor();
+	transparencyInputNumber.value = event.target.value;
+});
+transparencyInputNumber.addEventListener('input', () => {
+	updateColor();
+	transparencyInput.value = event.target.value;
+});
+transparencyInputNumber.value = 100;
 
 
-
-let eraserButton = document.querySelector('#eraser');
-let holdDownButton = document.querySelector('#hold-down');
-
-// playing with classes didn't work as I wanted, will directly change the properties...
+// playing with classes didn't work as I wanted (I missed somethings probably...), will directly change the properties...
 eraserButton.addEventListener('click', (event) => {
 	if (eraserOn)
 	{
@@ -70,6 +108,7 @@ eraserButton.addEventListener('click', (event) => {
 		eraserOn = true;
 	}
 });
+
 holdDownButton.addEventListener('click', (event) => {
 	if (sketchHoldDown)
 	{
@@ -90,33 +129,20 @@ holdDownButton.addEventListener('click', (event) => {
 });
 
 
-
-
-
-let colorTextOfGridBox = getComputedStyle(container).getPropertyValue('background-color');
 // just hex colors affects, at least it was for this...
 bgColorInput.value = rgbToHex(getComputedStyle(gridBox).getPropertyValue('background-color'));
-
-// TODO row number not updated along with gridSize!!!
-
-colorInput.addEventListener('change', updateColor);
-let currentColor = colorInput.value;
-
-transparencyInput.value = 100;
-transparencyInput.addEventListener('input', (event) => {
-	updateColor();
-	transparencyInputNumber.value = event.target.value;
-});
-transparencyInputNumber.addEventListener('input', () => {
-	updateColor();
-	transparencyInput.value = event.target.value;
-});
-transparencyInputNumber.value = 100;
 
 bgColorInput.addEventListener('change', (event) => {
 	gridBox.style.backgroundColor = event.target.value;
 });
 
+changeColorSectionButton.addEventListener("click", turnPalette);
+
+// ------------ SELECTION SECTION --------------
+
+resetButton.addEventListener('click', () => {
+	createDrawArea();	
+});
 
 gridSizeInput.value = gridSize;
 gridSizeInput.addEventListener('input', (event) => {
@@ -129,97 +155,6 @@ gridSizeInputNumber.addEventListener('change', ()=> {
 	gridSizeInput.value = event.target.value;
 });
 gridSizeInputNumber.value = gridSize;
-
-
-
-
-
-let colorPalette = document.querySelector('.color-palette');
-let sketchSettingsDiv = document.querySelector('.sketch-settings');
-let backgroundSettingsDiv = document.querySelector('.background-settings');
-
-const regexNumber = /([\.\d])+/g;
-let _colorPaletteTransitionDuration = getComputedStyle(colorPalette).getPropertyValue('transition-duration');
-let colorPaletteTransitionDuration = parseInt(_colorPaletteTransitionDuration.match(regexNumber)[0]);
-let preventWindow = document.querySelector(".prevent-window");
-
-
-let changeColorSectionButton = document.querySelector('.change-settings-type button');
-
-changeColorSectionButton.addEventListener("click", turnPalette);
-function turnPalette() {
-	let colorPaletteTitle = document.querySelector('.color-palette-title');
-
-	timeToSleep = ((colorPaletteTransitionDuration / 2) * 1000) + 300;
-
-	if (colorPaletteTitle.innerText == "Sketch Settings")
-	{
-		colorPalette.style.transform = 'perspective(20cm) rotateY(90deg)';
-		preventWindow.style.zIndex = '1000';
-		setTimeout(
-			() => {
-				sketchSettingsDiv.style.display = 'none';
-				backgroundSettingsDiv.style.display = 'flex';
-				colorPalette.style.transform = 'perspective(20cm) rotateY(180deg)';
-
-				colorPaletteTitle.innerText = " BG Settings ";
-				colorPaletteTitle.style.transform = "rotateY(180deg)";
-				backgroundSettingsDiv.style.transform = "rotateY(180deg)";
-				changeColorSectionButton.style.transform = "rotateY(180deg)";
-
-				changeColorSectionButton.innerText = 'Open Sketch Settings';
-
-				changeColorSectionButton.blur()
-			}
-			, timeToSleep
-		);
-		setTimeout(
-			() => {
-				preventWindow.style.zIndex = '-1000';
-			}
-			, colorPaletteTransitionDuration + 400
-		);
-
-	}
-	// ok, for such a situation, we shouldn't include leading and trailing spaces...
-	else if (colorPaletteTitle.innerText == "BG Settings")
-	{
-		colorPalette.style.transform = 'perspective(20cm) rotateY(90deg)';
-		preventWindow.style.zIndex = '1000';
-		setTimeout(
-			() => {
-				sketchSettingsDiv.style.display = 'flex';
-				backgroundSettingsDiv.style.display = 'none';
-				colorPalette.style.transform = 'perspective(20cm) rotateY(0deg)';
-
-				colorPaletteTitle.innerText = " Sketch Settings ";
-				colorPaletteTitle.style.transform = "rotateY(0deg)";
-				backgroundSettingsDiv.style.transform = "rotateY(0deg)";
-				changeColorSectionButton.style.transform = "rotateY(0deg)";
-
-				changeColorSectionButton.innerText = 'Open BG Settings';
-
-				changeColorSectionButton.blur()
-
-			}
-			, timeToSleep
-		);
-		setTimeout(
-			() => {
-				preventWindow.style.zIndex = '-1000';
-			}
-			, colorPaletteTransitionDuration + 400
-		);
-
-	}
-}
-
-
-// --------------------------------------------------------------------------------------------
-let resetButton = document.querySelector("#reset-grid");
-resetButton.addEventListener('click', () => {
-	createDrawArea();	
-});
 
 
 
@@ -312,7 +247,8 @@ function createDrawArea() {
 	containerPlaceDivs();
 }
 
-// ---------------------- COLOR/COLOUR ----------------
+
+// ---------------------------------------- UPDATE SETTINGS --------------------------------------
 function updateColor() {
 	if (transparencyInputNumber.value > 100)
 		transparencyInputNumber.value = 100;
@@ -345,8 +281,12 @@ function updateGridArea() {
 }
 
 
+// ---------------------------------------------------------------------------------------------------------
 createDrawArea();
+// ---------------------------------------------------------------------------------------------------------
 
+
+// ----------------------------------- COLOR CONVERTION -------------------------------------------
 
 function hexToRgb(hex_color) {
 
@@ -450,6 +390,81 @@ function rgbToHex(rgb_color) {
 
 
   return "#" + r + g + b;
+}
+
+// ---------------------------------------- MORE ELEMENT SPECIFIC FUNCTIONS ----------------------------------------
+
+function turnPalette() {
+	let colorPaletteTitle = document.querySelector('.color-palette-title');
+
+	timeToSleep = ((colorPaletteTransitionDuration / 2) * 1000) + 300;
+
+	if (colorPaletteTitle.innerText == "Sketch Settings")
+	{
+		colorPalette.style.transform = 'perspective(20cm) rotateY(90deg)';
+		preventWindow.style.zIndex = '1000';
+		setTimeout(
+			() => {
+				sketchSettingsDiv.style.display = 'none';
+				backgroundSettingsDiv.style.display = 'flex';
+				colorPalette.style.transform = 'perspective(20cm) rotateY(180deg)';
+
+				colorPaletteTitle.innerText = " BG Settings ";
+				colorPaletteTitle.style.transform = "rotateY(180deg)";
+				backgroundSettingsDiv.style.transform = "rotateY(180deg)";
+				changeColorSectionButton.style.transform = "rotateY(180deg)";
+
+				changeColorSectionButton.innerText = 'Open Sketch Settings';
+
+				changeColorSectionButton.blur()
+			}
+			, timeToSleep
+		);
+		setTimeout(
+			() => {
+				preventWindow.style.zIndex = '-1000';
+			}
+			, colorPaletteTransitionDuration + 400
+		);
+
+	}
+	// ok, for such a situation, we shouldn't include leading and trailing spaces...
+	else if (colorPaletteTitle.innerText == "BG Settings")
+	{
+		colorPalette.style.transform = 'perspective(20cm) rotateY(90deg)';
+		preventWindow.style.zIndex = '1000';
+		setTimeout(
+			() => {
+				sketchSettingsDiv.style.display = 'flex';
+				backgroundSettingsDiv.style.display = 'none';
+				colorPalette.style.transform = 'perspective(20cm) rotateY(0deg)';
+
+				colorPaletteTitle.innerText = " Sketch Settings ";
+				colorPaletteTitle.style.transform = "rotateY(0deg)";
+				backgroundSettingsDiv.style.transform = "rotateY(0deg)";
+				changeColorSectionButton.style.transform = "rotateY(0deg)";
+
+				changeColorSectionButton.innerText = 'Open BG Settings';
+
+				changeColorSectionButton.blur()
+
+			}
+			, timeToSleep
+		);
+		setTimeout(
+			() => {
+				preventWindow.style.zIndex = '-1000';
+			}
+			, colorPaletteTransitionDuration + 400
+		);
+
+	}
+}
+
+
+
+function getPixelSize() {
+	return container.offsetHeight / gridSize
 }
 
 
