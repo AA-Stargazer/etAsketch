@@ -15,6 +15,11 @@
 let container = document.querySelector('.container');
 
 
+// ----------- REGEX ------------
+const regexNumber = /([\.\d])+/g;
+
+
+
 // ------------- ELEMENTS ----------- 
 
 // -- color-palette
@@ -59,11 +64,6 @@ let currentColor = colorInput.value;
 let _colorPaletteTransitionDuration = getComputedStyle(colorPalette).getPropertyValue('transition-duration');
 let colorPaletteTransitionDuration = parseInt(_colorPaletteTransitionDuration.match(regexNumber)[0]);
 
-
-
-
-// ----------- REGEX ------------
-const regexNumber = /([\.\d])+/g;
 
 
 // ----------------------------------------------------------------------------------------------
